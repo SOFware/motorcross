@@ -1,7 +1,4 @@
-%h1 My Bikes
+%h1 New Bike
 
-= form_for @bike do |f|
-  = f.label :name
-  = f.text_field :name
-  = f.submit 
+= render :partial => '/layouts/equipment_form', :locals => {:equipment => @bike}
 

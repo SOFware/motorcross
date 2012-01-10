@@ -1,5 +1,4 @@
-class Bike < ActiveRecord::Base
-  belongs_to :rider
+class Tire < ActiveRecord::Base
   
   
   def make_and_model

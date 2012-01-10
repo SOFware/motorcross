@@ -10,7 +10,7 @@ class BikesController < ApplicationController
 
   def create
     @bike = Bike.create(params[:bike])
-    redirect_to 'index'
+    redirect_to :action => 'index'
   end
 
 end
