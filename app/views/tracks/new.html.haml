@@ -1,0 +1,10 @@
+%h1 New Track
+
+= form_for @track do |f|
+  = f.label :name
+  = f.text_field :name
+  = f.label :track_type
+  = f.text_field :track_type
+  
+  = f.submit
+  

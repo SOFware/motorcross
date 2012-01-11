@@ -23,6 +23,12 @@ When /^I create a race with track: "([^"]*)" date: "([^"]*)" type: "([^"]*)"$/ d
   visit root_path
   click_link "New Race"
   fill_in "date", :with => date
-  fill_in "track", :with => track
-  fill_in "track type", :with => type
+end
+
+When /^I add a track called "([^"]*)" of type "([^"]*)"$/ do |track_name, track_type|
+  visit root_path
+  click_link "New Track"
+  fill_in "track_name", :with => track_name
+  fill_in "track_track_type", :with => track_type
+  click_button 'Create'
 end
