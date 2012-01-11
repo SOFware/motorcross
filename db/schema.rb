@@ -11,26 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120110225005) do
+ActiveRecord::Schema.define(:version => 20120111185536) do
 
-  create_table "bikes", :force => true do |t|
+  create_table "equipment", :force => true do |t|
     t.string   "manufacturer"
+    t.string   "model"
     t.integer  "rider_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "model"
+    t.string   "type"
   end
 
   create_table "riders", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "tires", :force => true do |t|
-    t.string   "manufacturer"
-    t.string   "model"
-    t.integer  "rider_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

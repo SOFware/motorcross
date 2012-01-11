@@ -1,7 +1,3 @@
-class Tire < ActiveRecord::Base
+class Tire < Equipment #ActiveRecord::Base
   
-  
-  def make_and_model
-    "#{manufacturer} #{model}"
-  end
 end
