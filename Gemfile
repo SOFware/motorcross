@@ -5,7 +5,7 @@ gem 'rails', '3.1.3'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+
 gem 'heroku'
 
 
@@ -17,6 +17,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'thin'
 gem 'jquery-rails'
 gem 'haml-rails'
 
@@ -26,6 +27,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails'  
+  gem 'sqlite3'
 end
 
 group :test do
