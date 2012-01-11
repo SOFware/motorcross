@@ -13,8 +13,16 @@ When /^I add a "([^"]*)" with make "([^"]*)" and model "([^"]*)"$/ do |equipment
   click_button 'Create'
 end
 
-Then /^my "([^"]*)" list should show "([^"]*)"$/ do |equipment, name|
+Then /^my "([^"]*)" list should show "([^"]*)"$/ do |controller, name|
   visit root_path
-  click_link "My #{equipment.titleize.pluralize}"
+  click_link "My #{controller.titleize.pluralize}"
   page.should have_content(name)
+end
+
+When /^I create a race with track: "([^"]*)" date: "([^"]*)" type: "([^"]*)"$/ do |track, date, type|
+  visit root_path
+  click_link "New Race"
+  fill_in "date", :with => date
+  fill_in "track", :with => track
+  fill_in "track type", :with => type
 end
