@@ -1,6 +1,9 @@
 Motorcross::Application.routes.draw do
 
   resources :tracks
+  resources :racing_series
+  resources :track_types
+  resources :soils
   resources :venues
   resources :races
   resources :bikes

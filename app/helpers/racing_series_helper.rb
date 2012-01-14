@@ -1,0 +1,2 @@
+module RacingSeriesHelper
+end

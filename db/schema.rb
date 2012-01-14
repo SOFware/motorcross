@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120114200148) do
+ActiveRecord::Schema.define(:version => 20120114220200) do
 
   create_table "equipment", :force => true do |t|
     t.string   "manufacturer"
@@ -29,7 +29,25 @@ ActiveRecord::Schema.define(:version => 20120114200148) do
     t.datetime "updated_at"
   end
 
+  create_table "racing_series", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "riders", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "soils", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "track_types", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -37,9 +55,12 @@ ActiveRecord::Schema.define(:version => 20120114200148) do
 
   create_table "tracks", :force => true do |t|
     t.string   "name"
-    t.string   "track_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "soil_id"
+    t.integer  "track_type_id"
+    t.integer  "altitude",      :default => 0
+    t.integer  "venue_id"
   end
 
   create_table "venues", :force => true do |t|

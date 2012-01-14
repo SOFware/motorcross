@@ -9,15 +9,9 @@ Feature: Add tracks and venues
     When I add a venue called "NCMP"
     Then my "venue" list should show "NCMP"
   
-  
-  
-  
   Scenario: Add a race track
     Given I am a rider
-    When I add a track called "Acme Motorcross" of type "motorcross"
-    Then my "track" list should show "Acme Motorcross"
+    When I add a track called "Pro Motorcross" at the "NCMP" venue
+    Then my "track" list should show "NCMP: Pro Motorcross"
   
-  
-  
-
   

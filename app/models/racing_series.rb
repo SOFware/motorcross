@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: riders
+# Table name: racing_series
 #
 #  id         :integer         not null, primary key
 #  name       :string(255)
@@ -8,9 +8,5 @@
 #  updated_at :datetime
 #
 
-require 'spec_helper'
-
-describe Rider do
-
-
+class RacingSeries < ActiveRecord::Base
 end

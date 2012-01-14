@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: riders
+# Table name: soils
 #
 #  id         :integer         not null, primary key
 #  name       :string(255)
@@ -8,9 +8,6 @@
 #  updated_at :datetime
 #
 
-require 'spec_helper'
-
-describe Rider do
-
-
+class Soil < ActiveRecord::Base
+  has_many :tracks
 end
