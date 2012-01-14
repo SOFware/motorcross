@@ -1,12 +1,8 @@
 %h1 New Race
 
-= form_for @race do |f|
-  =f.label :date
-  =f.text_field :date
-  =f.label :name
-  =f.text_field :name
-  =f.label :track_type
-  =f.text_field :track_type
-  
-  =f.submit
+= simple_form_for @race do |f|
+  = f.input :date, :as => :string
+  = f.association :track, :include_blank => false
+
+  =f.button :submit
   

@@ -1,2 +1,7 @@
-%h1 Races#index
-%p Find me in app/views/races/index.html.haml
+
+
+%h1 My Races
+
+- @races.each do |race|
+  - present(race, RacePresenter) do |race_presenter|  
+    %p= race_presenter.listing

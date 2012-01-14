@@ -20,9 +20,12 @@ Then /^my "([^"]*)" list should show "([^"]*)"$/ do |controller, name|
 end
 
 When /^I create a race with track: "([^"]*)" date: "([^"]*)" type: "([^"]*)"$/ do |track, date, type|
+  step %[I add a track called "#{track}" of type "#{type}"]
   visit root_path
   click_link "New Race"
-  fill_in "date", :with => date
+  fill_in "race_date", :with => date
+  select(track, :from => 'race_track_id')
+  click_button 'Create'
 end
 
 When /^I add a track called "([^"]*)" of type "([^"]*)"$/ do |track_name, track_type|
@@ -31,4 +34,10 @@ When /^I add a track called "([^"]*)" of type "([^"]*)"$/ do |track_name, track_
   fill_in "track_name", :with => track_name
   fill_in "track_track_type", :with => track_type
   click_button 'Create'
+end
+
+
+
+Then /^show me the page$/ do
+  save_and_open_page
 end

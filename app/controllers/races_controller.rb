@@ -7,4 +7,10 @@ class RacesController < ApplicationController
     @race = Race.new
   end
 
+  def create
+    # raise 'b'
+    @race = Race.create(params[:race])
+    redirect_to :action => 'index'
+  end
+
 end

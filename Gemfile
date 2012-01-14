@@ -20,6 +20,8 @@ end
 gem 'thin'
 gem 'jquery-rails'
 gem 'haml-rails'
+gem 'simple_form'
+gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 
 group :production do
   gem 'pg'

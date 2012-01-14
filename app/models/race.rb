@@ -1,14 +1,14 @@
 # == Schema Information
 #
-# Table name: tracks
+# Table name: races
 #
 #  id         :integer         not null, primary key
-#  name       :string(255)
-#  track_type :string(255)
+#  date       :date
+#  track_id   :integer
 #  created_at :datetime
 #  updated_at :datetime
 #
 
-class Track < ActiveRecord::Base
+class Race < ActiveRecord::Base
+  belongs_to :track
 end
-
