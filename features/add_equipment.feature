@@ -6,7 +6,8 @@ Feature: rider adds bikes and other equipment
   Scenario: add a type of bike
     Given I am a rider
     When I add a "bike" with make "KTM" and model "350"
-    Then my "bike" list should show "KTM 350"
+    Then my "bike" list should show "KTM"
+    And my "bike" list should show "350"
     
   Scenario: add a type of tire
     Given I am a rider
