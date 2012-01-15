@@ -1,5 +1,6 @@
 class TiresController < ApplicationController
   def index
+    @tire = Tire.new
     @tires = Tire.all
   end
 

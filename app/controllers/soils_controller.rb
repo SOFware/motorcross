@@ -1,5 +1,6 @@
 class SoilsController < ApplicationController
   def index
+    @soil = Soil.new    
     @soils = Soil.all
   end
 

@@ -1,5 +1,27 @@
 %h1 My Tracks
 
-- @tracks.each do |track|
-  - present(track, TrackPresenter) do |track_presenter|  
-    %p= track_presenter.listing
+.add_new
+  = simple_form_for @track do |f|
+    = f.input :name
+    = f.association :venue, :include_blank => false
+    = f.association :track_type, :include_blank => false
+    = f.association :soil, :include_blank => false
+    = f.input :altitude
+    = f.button :submit
+
+
+.index_list
+  %table{:summary => 'track list'}
+    %tr
+      %th Name
+      %th Venue
+      %th Track Type
+      %th Soil Type
+      %th Altitude      
+    - @tracks.each_with_index do |track, i|
+      %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
+        %td= track.name
+        %td= track.venue.name
+        %td= track.track_type.name
+        %td= track.soil.name
+        %td= track.altitude

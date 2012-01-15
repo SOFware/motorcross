@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$odd_row_color: #ccf;
 
 .add_new {
 	float: left;
@@ -14,12 +13,15 @@ $odd_row_color: #ccf;
 .index_list {
 	float: left;
 	width: 300px;
+	table {
+		@include alternating_rows_and_columns($even_row_color, $odd_row_color, $intersection);
+	}
 	td {
 		padding: 2px 5px;		
 		width: 150px;
 	}
 	tr.odd {
-		background: $odd_row_color;
+		// background: $odd_row_color;
 	}
 		
 }

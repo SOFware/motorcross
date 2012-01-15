@@ -60,7 +60,8 @@ end
 private
   def create_new(object)
     visit root_path
-    click_link "New #{object.titleize}"
+    # click_link "New #{object.titleize}"
+    click_link "#{object.titleize.pluralize}"
     yield
     click_button 'Create'
   end

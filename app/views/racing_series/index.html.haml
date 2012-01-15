@@ -1,4 +1,14 @@
 %h1 My Racing Series
 
-- @all_racing_series.each do |series|
-  %p= series.name 
+.add_new
+  = simple_form_for @racing_series do |f|
+    = f.input :name
+    = f.button :submit
+
+.index_list
+  %table{:summary => 'racing series list'}
+    %tr
+      %th Name
+    - @all_racing_series.each_with_index do |race, i|
+      %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
+        %td= race.name

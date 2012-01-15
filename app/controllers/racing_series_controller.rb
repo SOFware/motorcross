@@ -1,6 +1,7 @@
 class RacingSeriesController < ApplicationController
   def index
     @all_racing_series = RacingSeries.all
+    @racing_series = RacingSeries.new    
   end
 
   def new

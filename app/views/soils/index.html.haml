@@ -1,4 +1,15 @@
 %h1 My Soil Types
 
-- @soils.each do |soil|
-  %p= soil.name
+.add_new
+  = simple_form_for @soil do |f|
+    = f.input :name
+    = f.button :submit
+
+.index_list
+  %table{:summary => 'soil list'}
+    %tr
+      %th Name
+    - @soils.each_with_index do |soil, i|
+      %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
+        %td= soil.name
+

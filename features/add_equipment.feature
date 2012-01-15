@@ -12,7 +12,8 @@ Feature: rider adds bikes and other equipment
   Scenario: add a type of tire
     Given I am a rider
     When I add a "tire" with make "Dunlop" and model "MX 31"
-    Then my "tire" list should show "Dunlop MX 31"
+    Then my "tire" list should show "Dunlop"
+    And my "tire" list should show "MX 31"
   
   
   

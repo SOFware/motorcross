@@ -5,7 +5,6 @@ Motorcross::Application.routes.draw do
   resources :track_types
   resources :soils
   resources :venues
-  resources :races
   resources :bikes
   resources :tires
   get "welcome/index"

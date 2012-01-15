@@ -1,6 +1,7 @@
 class TrackTypesController < ApplicationController
   def index
     @track_types = TrackType.all
+    @track_type = TrackType.new    
   end
 
   def new

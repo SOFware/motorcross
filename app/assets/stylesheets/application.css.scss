@@ -1,0 +1,21 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+*/
+ // commented out "*= require_tree ." to get sass to pass variables
+
+// shared
+@import "base";
+@import "simple_form";
+
+// controllers
+@import "bikes";
+@import "welcome";
+@import "racing_series";
+@import "soils";
+@import "tires";
+@import "tracks";
+@import "track_types";
+@import "venues";
