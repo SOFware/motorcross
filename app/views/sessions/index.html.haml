@@ -1,0 +1,19 @@
+.sessions
+  %h1 My Sessions
+  
+  .index_list
+    %table{:summary => 'sessions list'}
+      %tr
+        %th Date
+        %th Time
+        %th Session Type
+        %th Track
+        %th Weather      
+      - @sessions.each_with_index do |session, i|
+        %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
+          %td= session.date
+          %td= session.time
+          %td= session.session_type.name
+          %td= session.track.name
+          %td= session.sky_condition.name
+  

@@ -72,6 +72,19 @@ When /^I add a racing series "([^"]*)"$/ do |racing_series|
   end
 end
 
+When /^I record on session on "([^"]*)"$/ do |date|
+  visit root_path
+  click_link "Record Session"
+  fill_in "session_date", :with => date
+  click_button "Create"
+end
+
+When /^I add a session type called "([^"]*)"$/ do |type|
+  create_new('session type') do
+    fill_in "session_type_name", :with => type
+  end
+end
+
 Then /^show me the page$/ do
   save_and_open_page
 end
@@ -79,9 +92,7 @@ end
 private
   def create_new(object)
     visit root_path
-    # click_link "New #{object.titleize}"
     click_link "#{object.titleize.pluralize}"
-    # step "show me the page"
     yield
     click_button 'Create'
   end

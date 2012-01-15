@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: sky_conditions
+# Table name: session_types
 #
 #  id         :integer         not null, primary key
 #  name       :string(255)
@@ -8,6 +8,6 @@
 #  updated_at :datetime
 #
 
-class SkyCondition < ActiveRecord::Base
+class SessionType < ActiveRecord::Base
   has_many :sessions
 end

@@ -9,4 +9,5 @@
 #
 
 class GroundCondition < ActiveRecord::Base
+  has_many :sessions
 end

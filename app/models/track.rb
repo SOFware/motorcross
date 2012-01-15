@@ -16,5 +16,6 @@ class Track < ActiveRecord::Base
   belongs_to :track_type
   belongs_to :soil
   belongs_to :venue
+  has_many :sessions
 end
 

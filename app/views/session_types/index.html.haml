@@ -1,0 +1,14 @@
+%h1 My Session Types  
+.session_types
+  .add_new
+    = simple_form_for @type do |f|
+      = f.input :name
+      = f.button :submit
+
+  .index_list
+    %table{:summary => 'session type list'}
+      %tr
+        %th Name
+      - @types.each_with_index do |type, i|
+        %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
+          %td= type.name

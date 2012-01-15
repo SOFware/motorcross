@@ -1,5 +1,8 @@
 Motorcross::Application.routes.draw do
 
+
+  resources :session_types
+  resources :sessions
   resources :events
   resources :tracks
   resources :ground_conditions

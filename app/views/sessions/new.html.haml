@@ -1,0 +1,58 @@
+%h1 Recording Session
+
+.sessions
+  = simple_form_for @session do |f|
+    
+    .circumstances.add_new
+      = f.input :date, :as => :string, :input_html => {:value => Date.today}
+      = f.input :time, :as => :string, :input_html => {:value => Time.now}
+      = f.association :track, :include_blank => false
+      = f.association :event, :include_blank => false
+      = f.association :ground_condition, :include_blank => false, :input_html => {:class => 'test'}
+      = f.association :sky_condition, :include_blank => false
+      = f.association :session_type, :include_blank => false
+  
+    .suspension
+  
+  
+    .tires
+  
+  
+    .gearing
+  
+  
+    .button
+      = f.button :submit
+  
+  / Sessions will have:
+  /   *date
+  /   *time
+  /   track_id
+  /   *event_id
+  /   **ground_condition_id
+  /   **sky_condition_id
+  /   session_type (practice, test, moto1, moto2)
+  / 
+  / 
+  /   front tire psi
+  /   rear tire psi
+  / 
+  /   // suspension
+  /   Fork spring rate
+  /   Fork compressoin
+  /   Fork rebound
+  /   Shock spring rate
+  /   Shock compressoin
+  /   Shock rebound
+  /   Shock sag
+  /   Suspension notes/solutions
+  / 
+  /   // tires
+  /   front tire psi
+  /   rear tire psi
+  /   tire notes/solutions
+  / 
+  /   // gearing
+  /   front
+  /   rear
+  /   notes/solutions

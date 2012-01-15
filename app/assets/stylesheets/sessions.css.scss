@@ -1,0 +1,22 @@
+
+
+
+.sessions {
+	.add_new {
+		float: left;
+		width: 400px;
+		padding-right: 100px;
+		padding-top: 19px;
+
+	}
+	.test {
+		margin-bottom: 15px;
+	}
+	
+	.index_list {
+		@include index_list
+	}
+	
+}
+
+
