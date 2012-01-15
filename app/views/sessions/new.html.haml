@@ -1,25 +1,46 @@
 %h1 Recording Session
 
 .sessions
-  = simple_form_for @session do |f|
+  = simple_form_for @session, :defaults => {:include_blank => false} do |f|
     
     .circumstances.add_new
-      = f.input :date, :as => :string, :input_html => {:value => Date.today}
-      = f.input :time, :as => :string, :input_html => {:value => Time.now}
-      = f.association :track, :include_blank => false
-      = f.association :event, :include_blank => false
-      = f.association :ground_condition, :include_blank => false, :input_html => {:class => 'test'}
-      = f.association :sky_condition, :include_blank => false
-      = f.association :session_type, :include_blank => false
+      .time
+        - time = Time.now
+        = f.input :date, :as => :string, :input_html => {:value => time.strftime("%-d %b %y")}
+        = f.input :time, :as => :string, :input_html => {:value => time.strftime("%l:%M%P")}
+
+        = f.association :track, :include_blank => false
+        = f.association :event, :include_blank => false
+      .conditions
+        = f.association :ground_condition, :include_blank => false
+        = f.association :sky_condition, :include_blank => false
+        = f.association :session_type, :include_blank => false
   
     .suspension
   
   
     .tires
-  
+      .front
+        = f.association :front_tire, :collection => Tire.all(:order => 'manufacturer'),  :label_method => :make_and_model, :include_blank => false
+        = f.input :front_psi, :input_html => {:value => 10}
+      .rear
+        = f.association :rear_tire, :collection => Tire.all(:order => 'manufacturer'),  :label_method => :make_and_model, :include_blank => false
+        = f.input :rear_psi, :input_html => {:value => 10}  
   
     .gearing
-  
+      - default_comp_rebound = 12
+      .front
+        = f.input :front_gearing, :input_html => {:value => 13}  
+        = f.input :fork_spring_rate, :input_html => {:value => 4.6, :step => 0.1}  
+        = f.input :fork_compression, :input_html => {:value => @session.default_compression}  
+        = f.input :fork_rebound, :input_html => {:value => @session.default_rebound}
+      .rear
+        = f.input :rear_gearing, :input_html => {:value => 50}  
+        = f.input :shock_spring_rate, :input_html => {:value => 5.4, :step => 0.1}  
+        = f.input :compression_high, :input_html => {:value => @session.default_compression}
+        = f.input :compression_low, :input_html => {:value => 1.25, :step => 0.05}
+        = f.input :rebound, :input_html => {:value => @session.default_rebound}
+        = f.input :sag, :input_html => {:value => 100}
   
     .button
       = f.button :submit

@@ -1,21 +1,54 @@
-
-
-
 .sessions {
-	.add_new {
-		float: left;
-		width: 400px;
-		padding-right: 100px;
-		padding-top: 19px;
+	// @include showgrid;
+	$width: 8;
 
+	.index_list { @include index_list }
+
+	.circumstances {
+		@include column(24);
+    .time {
+			@include push(3.0); 
+			@include column($width);
+		}                 
+    .conditions {     
+			@include column(7, true);	
+			@include push(3);
+			label { width: 150px; }
+		}
+  }
+	.suspension {
+		@include column(24);
 	}
-	.test {
-		margin-bottom: 15px;
+  .tires {
+		@include column(24);
+		input[type='number'] {
+		  width: 50px;
+		}
+		.front {
+			@include column(7);
+		}
 	}
-	
-	.index_list {
-		@include index_list
+  .gearing {
+		input[type='number'] {
+		  width: 50px;
+		}
+		@include column(24);
+		label { width: 150px; }
+		.front {
+			@include column(8);
+		}
+		.rear {
+			@include column(8);			
+		}
 	}
+  .button {
+		input[type='submit'] {
+		  margin-left: 0px;
+		}
+		@include push(8);
+		@include column(8);
+	}
+  
 	
 }
 

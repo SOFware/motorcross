@@ -12,5 +12,8 @@
 #
 
 class Tire < Equipment #ActiveRecord::Base
+  has_many :sessions, :class_name => "session", :foreign_key => "front_tire_id"
+  has_many :sessions, :class_name => "session", :foreign_key => "rear_tire_id"
   
+
 end

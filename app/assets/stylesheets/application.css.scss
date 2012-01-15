@@ -25,8 +25,8 @@
 @import "session_types";
 @import "sessions";
 
-.home_link {
-	margin-left: 50px;
-	padding-left: 50px;
+.container {
+	@include container;
+	// @include showgrid;
 	
 }

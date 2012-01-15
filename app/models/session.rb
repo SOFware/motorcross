@@ -34,7 +34,15 @@ class Session < ActiveRecord::Base
   belongs_to :ground_condition
   belongs_to :sky_condition
   belongs_to :session_type
+  belongs_to :front_tire, :class_name => "Tire"
+  belongs_to :rear_tire, :class_name => "Tire"
   
+  def default_compression
+    12
+  end
   
+  def default_rebound
+    12
+  end
 
 end
