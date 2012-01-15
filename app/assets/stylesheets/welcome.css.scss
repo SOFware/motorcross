@@ -1,17 +1,46 @@
+$button_columns: 5;
+$button_div_width: 7.5;
 
+.welcome {
+	@include container;
+	// @include showgrid;
 
-.record_stuff, .see_stuff {
-  float: left;
-	padding-right: 20px;
-	padding-left: 20px;
-	width: 200px;
-}
-
-.button {
-	a {
-		// @include fancy-buttons
+	.button {
+		a {
+			@include fancy-button;
+			// width: 150px;
+			@include column($button_columns);
+			margin-bottom: 15px;
+			text-align: center;
+		}
 	}
-}
+
+  .record_session {
+		@include column(24);
+		a {
+			@include fancy-button($attention, 140%);
+			@include push(8);
+			@include column(7);
+		}
+		//fancy-buttons ( color, font-size, border-radius, border-size )
+	}
+  .equipment  {
+		@include push(24 - $button_div_width*3);
+		@include column($button_div_width);
+	}
+  .race_info  {
+		
+		
+		@include column($button_div_width);
+	}
+  .conditions {
+		@include column($button_div_width, last);
+	}
+
+
   
 
 
+}
+
+  

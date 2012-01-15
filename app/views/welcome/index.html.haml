@@ -1,15 +1,22 @@
 %h1 Motorcross Dope 
 
+.welcome
+  .record_session
+    %p.button= link_to "Record Session", "#"
+  
+  .equipment
+    %p.button= link_to "Bikes", bikes_path
+    %p.button= link_to "Tires", tires_path
 
-.record_stuff
-  %h3 Record stuff
-.see_stuff
-  %h3 See stuff
-  %p= link_to "Bikes", bikes_path
-  %p= link_to "Tires", tires_path
-  %p= link_to "Tracks", tracks_path
-  %p= link_to "Venues", venues_path
-  %p= link_to "Soil Types", soils_path
-  %p.button= link_to "Track Types", track_types_path
-  %p= link_to "Racing Series", racing_series_index_path
+  .race_info
+    %p.button= link_to "Venues", venues_path
+    %p.button= link_to "Track Types", track_types_path
+    %p.button= link_to "Racing Series", racing_series_index_path
+    %p.button= link_to "Tracks", tracks_path
 
+  .conditions
+    %p.button= link_to "Soil Types", soils_path
+    %p.button= link_to "Soil Conditions", "#"
+    %p.button= link_to "Weather", "#"
+  
+  

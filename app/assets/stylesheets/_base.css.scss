@@ -1,6 +1,7 @@
 $odd_row_color: #ccf;
 $even_row_color: #fff;
 $intersection: #000;
+$attention: #2b4e80;
 // $blueprint_grid_columns: 8;
 // $blueprint_grid_width: 40px;
 
@@ -8,6 +9,8 @@ $intersection: #000;
 @import "blueprint"; 
 @import "blueprint/grid";
 @import "compass/utilities/tables/alternating-rows-and-columns";
+@import "fancy-buttons"; //fancy-buttons ( color, font-size, border-radius, border-size )
+
  
 // .two-col {
 //   @include container;
@@ -20,8 +23,15 @@ $intersection: #000;
 //     @include column(5, true); } }
 
 
+@mixin create-button {
+	@include fancy-button($attention);
+}
 
+input[type="submit"] {
+	@include create-button;
+}
 
+h1 { text-align: center;}
 
 @mixin add-new {
 	float: left;
