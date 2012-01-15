@@ -1,0 +1,13 @@
+
+.events {
+	.add_new {
+		@include add-new;
+	}
+	
+	.index_list {
+		@include index_list(4,500)
+	}
+	
+}
+
+

@@ -1,14 +1,14 @@
 # == Schema Information
 #
-# Table name: venues
+# Table name: events
 #
 #  id         :integer         not null, primary key
 #  name       :string(255)
+#  venue_id   :integer
 #  created_at :datetime
 #  updated_at :datetime
 #
 
-class Venue < ActiveRecord::Base
-  has_many :tracks
-  has_many :events
+class Event < ActiveRecord::Base
+  belongs_to :venue
 end

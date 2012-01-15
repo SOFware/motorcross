@@ -34,6 +34,14 @@ When /^I add a soil condition like "([^"]*)"$/ do |ground_conditions|
   end
 end
 
+When /^I add an event called "([^"]*)"$/ do |event_name|
+  venue = Venue.create(:name => "NCMP")
+  create_new('event') do
+    fill_in "event_name", :with => event_name
+    select(venue.name, :from => 'event_venue_id')
+  end
+end
+
 When /^I add a sky condition like "([^"]*)"$/ do |sky_conditions|
   create_new('sky condition') do
     fill_in "sky_condition_name", :with => sky_conditions

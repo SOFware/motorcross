@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120115061927) do
+ActiveRecord::Schema.define(:version => 20120115132503) do
 
   create_table "equipment", :force => true do |t|
     t.string   "manufacturer"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(:version => 20120115061927) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"
+  end
+
+  create_table "events", :force => true do |t|
+    t.string   "name"
+    t.integer  "venue_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.date     "begin_date"
+    t.date     "end_date"
   end
 
   create_table "ground_conditions", :force => true do |t|

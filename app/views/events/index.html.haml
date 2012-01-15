@@ -1,0 +1,23 @@
+%h1 My events
+.events
+  .add_new
+    = simple_form_for @event do |f|
+      = f.input :name
+      = f.association :venue, :include_blank => false
+      = f.input :begin_date, :as => :string
+      = f.input :end_date, :as => :string
+      = f.button :submit
+
+  .index_list
+    %table{:summary => 'bike list'}
+      %tr
+        %th Name
+        %th Venue
+        %th Starts
+        %th Ends
+      - @events.each_with_index do |event, i|
+        %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
+          %td= event.name
+          %td= event.venue.name
+          %td= event.begin_date
+          %td= event.end_date

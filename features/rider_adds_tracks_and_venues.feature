@@ -15,4 +15,12 @@ Feature: Add tracks and venues
     Then my "track" list should show "NCMP"
     And my "track" list should show "Pro Motorcross"
   
+  @wip
+  Scenario: Add an event
+    Given I am a rider
+    When I add an event called "National Championships"
+    Then my "event" list should show "National Championships"
+  
+  
+  
   

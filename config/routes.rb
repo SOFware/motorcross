@@ -1,6 +1,6 @@
 Motorcross::Application.routes.draw do
 
-
+  resources :events
   resources :tracks
   resources :ground_conditions
   resources :sky_conditions
