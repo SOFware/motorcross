@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120114220200) do
+ActiveRecord::Schema.define(:version => 20120115061927) do
 
   create_table "equipment", :force => true do |t|
     t.string   "manufacturer"
@@ -20,6 +20,12 @@ ActiveRecord::Schema.define(:version => 20120114220200) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"
+  end
+
+  create_table "ground_conditions", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "races", :force => true do |t|
@@ -36,6 +42,12 @@ ActiveRecord::Schema.define(:version => 20120114220200) do
   end
 
   create_table "riders", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sky_conditions", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"

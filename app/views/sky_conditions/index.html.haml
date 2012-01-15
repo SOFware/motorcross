@@ -1,0 +1,14 @@
+%h1 My Sky Conditions
+.sky_conditions
+  .add_new
+    = simple_form_for @condition do |f|
+      = f.input :name
+      = f.button :submit
+
+  .index_list
+    %table{:summary => 'sky conditions list'}
+      %tr
+        %th Name
+      - @conditions.each_with_index do |condition, i|
+        %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
+          %td= condition.name

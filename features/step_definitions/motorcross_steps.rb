@@ -25,7 +25,18 @@ When /^I add a track called "([^"]*)" at the "([^"]*)" venue$/ do |track_name, v
     select(soil.name, :from => 'track_soil_id')
     select(track_type.name, :from => 'track_track_type_id')
     select(venue.name, :from => 'track_venue_id')
-    
+  end
+end
+
+When /^I add a soil condition like "([^"]*)"$/ do |ground_conditions|
+  create_new('ground condition') do
+    fill_in "ground_condition_name", :with => ground_conditions
+  end
+end
+
+When /^I add a sky condition like "([^"]*)"$/ do |sky_conditions|
+  create_new('sky condition') do
+    fill_in "sky_condition_name", :with => sky_conditions
   end
 end
 
@@ -62,6 +73,7 @@ private
     visit root_path
     # click_link "New #{object.titleize}"
     click_link "#{object.titleize.pluralize}"
+    # step "show me the page"
     yield
     click_button 'Create'
   end

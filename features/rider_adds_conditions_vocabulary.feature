@@ -17,6 +17,22 @@ Feature: Rider adds conditions vocabulary
     Given I am a rider
     When I add a racing series "GNCC"
     Then my "racing series" list should show "GNCC"
+    
+  Scenario: add ground conditions
+    Given I am a rider
+    When I add a soil condition like "mud"
+    Then my "ground condition" list should show "mud"
+  
+  Scenario: add sky conditions
+    Given I am a rider
+    When I add a sky condition like "sunny"
+    Then my "sky condition" list should show "sunny"
+  
+  
+  
+  
+  
+  
   
   
   

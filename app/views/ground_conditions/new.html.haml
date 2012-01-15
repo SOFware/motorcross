@@ -1,0 +1,6 @@
+%h1 New Ground Conditions
+.ground_conditions
+  .add_new
+    = simple_form_for @condition do |f|
+      = f.input :name
+      = f.button :submit
