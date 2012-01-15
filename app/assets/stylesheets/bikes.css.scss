@@ -2,26 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-.add_new {
-	float: left;
-	width: 400px;
-	padding-right: 100px;
-	padding-top: 19px;
-}
+.bikes {
+	.add_new {
+		@include add-new;
+	}
 	
-.index_list {
-	float: left;
-	width: 300px;
-	table {
-		@include alternating_rows_and_columns($even_row_color, $odd_row_color, $intersection);
+	.index_list {
+		@include index_list
 	}
-	td {
-		padding: 2px 5px;		
-		width: 150px;
-	}
-	tr.odd {
-		// background: $odd_row_color;
-	}
-		
+	
 }
+
+

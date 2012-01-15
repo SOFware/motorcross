@@ -1,3 +1,15 @@
 // Place all the styles related to the tracks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.tracks {
+	.add_new {
+		@include add-new;
+	}
+	
+	.index_list {
+		@include index_list(5, 600px)
+	}
+	
+}
+	

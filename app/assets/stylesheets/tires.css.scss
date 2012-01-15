@@ -1,3 +1,14 @@
 // Place all the styles related to the tires controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.tires {
+	.add_new {
+		@include add-new;
+	}
+	
+	.index_list {
+		@include index_list
+	}
+	
+}

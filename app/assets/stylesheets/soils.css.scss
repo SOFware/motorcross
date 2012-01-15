@@ -1,3 +1,16 @@
-// Place all the styles related to the soils controller here.
+// Place all the styles related to the venues controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.soils {
+	.add_new {
+		@include add-new;
+	}
+	
+	.index_list {
+		@include index_list
+	}
+	
+}
+
+

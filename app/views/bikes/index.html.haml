@@ -1,17 +1,19 @@
 %h1 My Bikes
 
-.add_new
-  = simple_form_for @bike do |f|
-    = f.input :manufacturer
-    = f.input :model
-    = f.button :submit
+.bikes
+  .add_new
+    = simple_form_for @bike do |f|
+      = f.input :manufacturer
+      = f.input :model
+      = f.button :submit
 
-.index_list
-  %table{:summary => 'bike list'}
-    %tr
-      %th Model
-      %th Manufacturer
-    - @bikes.each_with_index do |bike, i|
-      %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
-        %td= bike.model
-        %td= bike.manufacturer
+  .index_list
+    %table{:summary => 'bike list'}
+      %tr
+        %th Model
+        %th Manufacturer
+      - @bikes.each_with_index do |bike, i|
+        %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
+          %td= bike.model
+          %td= bike.manufacturer
+ 

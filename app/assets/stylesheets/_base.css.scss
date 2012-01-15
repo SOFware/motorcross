@@ -4,3 +4,24 @@ $intersection: #000;
 
 
 @import "compass/utilities/tables/alternating-rows-and-columns";
+
+
+
+@mixin add-new {
+	float: left;
+	width: 400px;
+	padding-right: 100px;
+	padding-top: 19px;
+}
+
+@mixin index-list($columns: 2, $width: 300px) {
+	float: left;
+	width: $width;
+	table {
+		@include alternating_rows_and_columns($even_row_color, $odd_row_color, $intersection);
+	}
+	td {
+		padding: 2px 5px;		
+		width: $width / $columns;
+	}
+}

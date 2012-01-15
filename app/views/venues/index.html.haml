@@ -1,14 +1,14 @@
 %h1 My Venues
+.venues
+  .add_new
+    = simple_form_for @venue do |f|
+      = f.input :name
+      = f.button :submit
 
-.add_new
-  = simple_form_for @venue do |f|
-    = f.input :name
-    = f.button :submit
-
-.index_list
-  %table{:summary => 'bike list'}
-    %tr
-      %th Name
-    - @venues.each_with_index do |venue, i|
-      %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
-        %td= venue.name
+  .index_list
+    %table{:summary => 'bike list'}
+      %tr
+        %th Name
+      - @venues.each_with_index do |venue, i|
+        %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
+          %td= venue.name
