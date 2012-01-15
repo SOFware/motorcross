@@ -73,6 +73,9 @@ When /^I add a racing series "([^"]*)"$/ do |racing_series|
 end
 
 When /^I record on session on "([^"]*)"$/ do |date|
+  step %[I add a session type called "practice"]
+  step %[I add a track called "amateur moto" at the "NCMP" venue]
+  step %[I add a sky condition like "sunny"]
   visit root_path
   click_link "Record Session"
   fill_in "session_date", :with => date

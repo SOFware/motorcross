@@ -19,7 +19,7 @@ Feature: Add tracks and venues
     Given I am a rider
     When I add an event called "National Championships"
     Then my "event" list should show "National Championships"
-@wip    
+    
   Scenario: Add a session type
     Given I am a rider
     When I add a session type called "Practice"
