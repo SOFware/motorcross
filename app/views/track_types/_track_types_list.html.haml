@@ -1,0 +1,6 @@
+%table{:summary => 'track types list'}
+  %tr
+    %th Name
+  - track_types.each_with_index do |track_type, i|
+    %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
+      %td= track_type.name

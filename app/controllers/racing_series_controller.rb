@@ -10,6 +10,12 @@ class RacingSeriesController < ApplicationController
 
   def create
     @racing_series = RacingSeries.create(params[:racing_series])
-    redirect_to :action => "index"
+    if request.xhr?
+      render :text => render_to_string(:partial => 'racing_series/racing_series_list', 
+        :locals => { :all_racing_series => RacingSeries.all})
+    else
+      redirect_to :action => "index"
+    end
+    
   end
 end

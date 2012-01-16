@@ -10,7 +10,13 @@ class TrackTypesController < ApplicationController
   
   def create
     @track_type = TrackType.create(params[:track_type])
-    redirect_to :action => 'index'
+    if request.xhr?
+      render :text => render_to_string(:partial => 'track_types/track_types_list', 
+        :locals => { :track_types => TrackType.all })
+    else
+      redirect_to :action => 'index'      
+    end
+
   end
 
 end

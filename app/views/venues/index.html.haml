@@ -3,12 +3,7 @@
   .add_new
     = simple_form_for @venue do |f|
       = f.input :name, :input_html => {:class => 'focus_here'}
-      = f.button :submit
+      = f.button :submit, {:id => 'new_venue'}
 
   .index_list
-    %table{:summary => 'bike list'}
-      %tr
-        %th Name
-      - @venues.each_with_index do |venue, i|
-        %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
-          %td= venue.name
+    = render :partial => 'venue_list', :locals => {:venues => @venues}

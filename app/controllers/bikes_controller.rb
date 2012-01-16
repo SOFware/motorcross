@@ -11,7 +11,12 @@ class BikesController < ApplicationController
 
   def create
     @bike = Bike.create(params[:bike])
-    redirect_to :action => 'index'
+    if request.xhr?
+      render :text => render_to_string(:partial => 'bikes/bikes_list', 
+        :locals => { :bikes => Bike.all })
+    else
+      redirect_to :action => :index
+    end    
   end
 
 end

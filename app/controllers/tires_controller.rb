@@ -10,7 +10,12 @@ class TiresController < ApplicationController
   
   def create
     @tire = Tire.create(params[:tire])
-    redirect_to tires_path
+    if request.xhr?
+      render :text => render_to_string(:partial => 'tires/tires_list', 
+        :locals => { :tires => Tire.all })
+    else
+      redirect_to :action => :index
+    end    
   end
 
 end

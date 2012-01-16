@@ -1,0 +1,6 @@
+%table{:summary => 'venue list'}
+  %tr
+    %th Name
+  - venues.each_with_index do |venue, i|
+    %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
+      %td= venue.name

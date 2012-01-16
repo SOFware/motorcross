@@ -8,11 +8,4 @@
       = f.button :submit
 
   .index_list
-    %table{:summary => 'tire list'}
-      %tr
-        %th Model
-        %th Manufacturer
-      - @tires.each_with_index do |tire, i|
-        %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
-          %td= tire.model
-          %td= tire.manufacturer
+    = render :partial => 'tires_list', :locals => {:tires => @tires}

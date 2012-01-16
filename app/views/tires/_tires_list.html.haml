@@ -1,0 +1,8 @@
+%table{:summary => 'tire list'}
+  %tr
+    %th Manufacturer  
+    %th Model
+  - tires.each_with_index do |tire, i|
+    %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
+      %td= tire.manufacturer
+      %td= tire.model

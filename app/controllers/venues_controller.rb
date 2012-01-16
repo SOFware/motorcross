@@ -10,8 +10,12 @@ class VenuesController < ApplicationController
   
   def create
     @venue = Venue.create(params[:venue])
-    redirect_to :action => 'index'
-    
+    if request.xhr?
+      render :text => render_to_string(:partial => 'venues/venue_list', 
+        :locals => { :venues => Venue.all })
+    else
+      redirect_to :action => :index
+    end    
   end
 
 end

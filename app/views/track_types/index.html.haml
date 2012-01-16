@@ -3,12 +3,7 @@
   .add_new
     = simple_form_for @track_type do |f|
       = f.input :name, :input_html => {:class => 'focus_here'}
-      = f.button :submit
+      = f.button :submit, {:id => "new_track_type"}
 
   .index_list
-    %table{:summary => 'track types list'}
-      %tr
-        %th Name
-      - @track_types.each_with_index do |track_type, i|
-        %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
-          %td= track_type.name
+    = render :partial => 'track_types_list', :locals => {:track_types => @track_types}
