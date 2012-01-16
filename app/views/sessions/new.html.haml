@@ -1,12 +1,12 @@
-%h1 Recording Session
+%h1 Record Conditions & Configuration
 
 .sessions
   .nav
-    .active 
+    #menu_circ.active 
       = link_to "Conditions & Location", "#", :id => 'circumstances'
-    .inactive 
+    #menu_tire.inactive 
       = link_to "Tires", "#", :id => 'tires'
-    .inactive 
+    #menu_gear.inactive 
       = link_to "Gears & Compression", "#", :id => 'gears'
 
   = simple_form_for @session, :defaults => {:include_blank => false} do |f|    
