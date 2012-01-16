@@ -37,7 +37,7 @@
 			@include column($width);
 		}                 
     .conditions {     
-			@include column(7, true);	
+			@include column(8, true);	
 			@include push(3);
 			label { width: 150px; }
 		}
