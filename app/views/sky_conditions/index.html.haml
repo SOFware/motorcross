@@ -1,8 +1,8 @@
-%h1 My Sky Conditions
+\%h1 My Sky Conditions
 .sky_conditions
   .add_new
     = simple_form_for @condition do |f|
-      = f.input :name
+      = f.input :name, :input_html => {:class => 'focus_here'}
       = f.button :submit
 
   .index_list

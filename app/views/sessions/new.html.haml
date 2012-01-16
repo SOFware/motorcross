@@ -13,7 +13,7 @@
     .circumstances.options
       .time
         - time = Time.now
-        = f.input :date, :as => :string, :input_html => {:value => time.strftime("%-d %b %y")}
+        = f.input :date, :as => :string, :input_html => {:class => 'focus_here',:value => time.strftime("%-d %b %y")}
         = f.input :time, :as => :string, :input_html => {:value => time.strftime("%l:%M%P")}
 
         = f.association :track, :include_blank => false
@@ -29,7 +29,7 @@
     .tires.hidden.options
       .front
         = f.association :front_tire, :collection => Tire.all(:order => 'manufacturer'),  :label_method => :make_and_model, :include_blank => false
-        = f.input :front_psi, :input_html => {:value => 10}
+        = f.input :front_psi, :input_html => { :value => 10}
       .rear
         = f.association :rear_tire, :collection => Tire.all(:order => 'manufacturer'),  :label_method => :make_and_model, :include_blank => false
         = f.input :rear_psi, :input_html => {:value => 10}  

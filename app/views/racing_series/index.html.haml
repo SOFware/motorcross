@@ -2,7 +2,7 @@
 .racing_series
   .add_new
     = simple_form_for @racing_series do |f|
-      = f.input :name
+      = f.input :name, :input_html => {:class => 'focus_here'}
       = f.button :submit
 
   .index_list

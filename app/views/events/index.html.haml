@@ -2,7 +2,7 @@
 .events
   .add_new
     = simple_form_for @event do |f|
-      = f.input :name
+      = f.input :name, :input_html => {:class => 'focus_here'}
       = f.association :venue, :include_blank => false
       = f.input :begin_date, :as => :string
       = f.input :end_date, :as => :string

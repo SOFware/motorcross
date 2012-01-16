@@ -3,7 +3,7 @@
 .tires
   .add_new
     = simple_form_for @tire do |f|
-      = f.input :manufacturer
+      = f.input :manufacturer, :input_html => {:class => 'focus_here'}
       = f.input :model
       = f.button :submit
 

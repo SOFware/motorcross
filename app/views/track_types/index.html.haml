@@ -2,7 +2,7 @@
 .track_types
   .add_new
     = simple_form_for @track_type do |f|
-      = f.input :name
+      = f.input :name, :input_html => {:class => 'focus_here'}
       = f.button :submit
 
   .index_list

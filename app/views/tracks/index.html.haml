@@ -2,7 +2,7 @@
 .tracks
   .add_new
     = simple_form_for @track do |f|
-      = f.input :name
+      = f.input :name, :input_html => {:class => 'focus_here'}
       = f.association :venue, :include_blank => false
       = f.association :track_type, :include_blank => false
       = f.association :soil, :include_blank => false

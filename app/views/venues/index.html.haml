@@ -2,7 +2,7 @@
 .venues
   .add_new
     = simple_form_for @venue do |f|
-      = f.input :name
+      = f.input :name, :input_html => {:class => 'focus_here'}
       = f.button :submit
 
   .index_list
