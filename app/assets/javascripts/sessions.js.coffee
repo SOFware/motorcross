@@ -1,3 +1,13 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+jQuery ->
+	$('#circumstances').click ->
+		$('.options').hide()
+		$('.circumstances').show()
+
+	$('#tires').click ->
+		$('.options').hide()
+		$('.tires').show()
+	
+	$('#gears').click ->
+		$('.options').hide()
+		$('.gearing').show()
+	

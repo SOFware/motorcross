@@ -4,6 +4,32 @@
 
 	.index_list { @include index_list }
 
+	.nav {
+		div {
+			border-style: solid;
+			border-color: #555;
+			background-color: #aaa;
+			border-width: 1px;
+			height: 20px;
+			text-align: center;
+			padding-top: 3px;
+		}
+		.active { 
+			@include column(8);
+			margin: 0px 0px 35px 0px;
+			background-color: #476ece;
+			}
+		.inactive { @include column(8);
+			@include column(8);
+			margin: 0px 0px 35px 0px;
+			.hidden {display: none;}
+			}
+		.tires { @include column(8);
+			@include column(8);
+			margin: 0px 0px 35px 0px;
+			}
+	}
+
 	.circumstances {
 		@include column(24);
     .time {
@@ -25,7 +51,11 @@
 		  width: 50px;
 		}
 		.front {
+			@include push(4);
 			@include column(7);
+		}
+		.rear {
+			@include column(7, true);
 		}
 	}
   .gearing {
@@ -35,12 +65,14 @@
 		@include column(24);
 		label { width: 150px; }
 		.front {
+			@include push(4);
 			@include column(8);
 		}
 		.rear {
-			@include column(8);			
+			@include column(8, true);			
 		}
 	}
+	.hidden {display: none;}
   .button {
 		input[type='submit'] {
 		  margin-left: 0px;

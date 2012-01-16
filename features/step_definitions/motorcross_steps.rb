@@ -79,7 +79,7 @@ When /^I record on session on "([^"]*)"$/ do |date|
   visit root_path
   click_link "Record Session"
   fill_in "session_date", :with => date
-  click_button "Create"
+  click_button "Save"
 end
 
 When /^I add a session type called "([^"]*)"$/ do |type|
