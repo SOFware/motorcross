@@ -2,7 +2,10 @@
 	// @include showgrid;
 	$width: 8;
 
-	.index_list { @include index_list }
+	.index_list { 
+		@include index_list(3, 300); 
+		table { float: left;}
+	}
 
 	.nav {
 		div {
@@ -27,6 +30,7 @@
 	}
 	.notes { 
 		@include column(24);
+		@include push(1);
 		textarea {
 			width: span(16);
 			height: 120px;

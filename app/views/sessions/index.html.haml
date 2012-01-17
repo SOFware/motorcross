@@ -7,13 +7,17 @@
         %th Date
         %th Time
         %th Session Type
+      - @sessions.each_with_index do |session, i|
+        %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
+          %td= session.date.strftime("%-d %b %y")
+          %td= session.time.strftime("%l:%M%P")
+          %td= session.session_type.name
+    %table{:summary => 'sessions list'}
+      %tr
         %th Track
         %th Weather      
       - @sessions.each_with_index do |session, i|
         %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
-          %td= session.date
-          %td= session.time
-          %td= session.session_type.name
           %td= session.track.name
           %td= session.sky_condition.name
   
