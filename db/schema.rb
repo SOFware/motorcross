@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120117044322) do
+ActiveRecord::Schema.define(:version => 20120117111653) do
 
   create_table "equipment", :force => true do |t|
     t.string   "manufacturer"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(:version => 20120117044322) do
     t.text     "tire_notes"
     t.text     "suspension_notes"
     t.text     "gearing_notes"
+    t.integer  "temp"
   end
 
   create_table "sky_conditions", :force => true do |t|

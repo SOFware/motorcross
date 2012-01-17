@@ -24,6 +24,7 @@
         = f.association :ground_condition, :include_blank => false
         = f.association :sky_condition, :include_blank => false
         = f.association :session_type, :include_blank => false
+        = f.input :temp, :input_html => {:value => 60}
       .notes
         = f.input :session_notes
   
