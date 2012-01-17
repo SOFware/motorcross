@@ -33,17 +33,20 @@
 			}
 		}
 	.circumstances {
+		select {
+			width: 170px;
+		}
 		input[type='number'] {
 		  width: 50px;
 		}
 		@include column(24);
     .time {
-			@include push(3.0); 
+			@include push(2.4); 
 			@include column($width);
 		}                 
     .conditions {     
-			@include column(8, true);	
-			@include push(3);
+			@include column(9, true);	
+			@include push(2);
 			label { width: 150px; }
 		}
   }
@@ -53,7 +56,7 @@
 		  width: 50px;
 		}
 		.front {
-			@include push(4);
+			@include push(4.5);
 			@include column(7);
 		}
 		.rear {
