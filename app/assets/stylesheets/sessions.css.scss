@@ -15,21 +15,23 @@
 			padding-top: 3px;
 		}
 		.active { 
-			@include column(8);
+			@include column(6);
 			margin: 0px 0px 35px 0px;
 			background-color: #476ece;
 			}
-		.inactive { @include column(8);
-			@include column(8);
+		.inactive { 
+			@include column(6);
 			margin: 0px 0px 35px 0px;
 			.hidden {display: none;}
 			}
-		.tires { @include column(8);
-			@include column(8);
-			margin: 0px 0px 35px 0px;
-			}
 	}
-
+	.notes { 
+		@include column(24);
+		textarea {
+			width: span(16);
+			height: 120px;
+			}
+		}
 	.circumstances {
 		@include column(24);
     .time {
@@ -42,10 +44,7 @@
 			label { width: 150px; }
 		}
   }
-	.suspension {
-		@include column(24);
-	}
-  .tires {
+  .tires, .gearing {
 		@include column(24);
 		input[type='number'] {
 		  width: 50px;
@@ -58,7 +57,7 @@
 			@include column(7, true);
 		}
 	}
-  .gearing {
+  .suspension {
 		input[type='number'] {
 		  width: 50px;
 		}

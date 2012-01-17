@@ -14,7 +14,6 @@ jQuery ->
 		$('.tires').show()
 		$('.active').addClass('inactive')
 		$('.active').removeClass('active')
-
 		$('#menu_tire').addClass('active')
 		$('#menu_tire').removeClass('inactive')
 	
@@ -23,7 +22,14 @@ jQuery ->
 		$('.gearing').show()
 		$('.active').addClass('inactive')
 		$('.active').removeClass('active')
-
 		$('#menu_gear').addClass('active')
 		$('#menu_gear').removeClass('inactive')
+	
+	$('#suspension').click ->
+		$('.options').hide()
+		$('.suspension').show()
+		$('.active').addClass('inactive')
+		$('.active').removeClass('active')
+		$('#menu_suspension').addClass('active')
+		$('#menu_suspension').removeClass('inactive')
 	
