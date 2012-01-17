@@ -5,9 +5,9 @@
     #menu_circ.active 
       = link_to "Conditions & Location", "#", :id => 'circumstances'
     #menu_tire.inactive 
-      = link_to "Tires", "#", :id => 'tires'
+      = link_to "Gearing & Tires", "#", :id => 'tires'
     #menu_gear.inactive 
-      = link_to "Gears & Compression", "#", :id => 'gears'
+      = link_to "Compression", "#", :id => 'gears'
 
   = simple_form_for @session, :defaults => {:include_blank => false} do |f|    
     .circumstances.options
@@ -28,20 +28,22 @@
   
     .tires.hidden.options
       .front
+        = f.input :front_gearing, :input_html => {:value => 13}        
         = f.association :front_tire, :collection => Tire.all(:order => 'manufacturer'),  :label_method => :make_and_model, :include_blank => false
         = f.input :front_psi, :input_html => { :value => 10}
       .rear
+        = f.input :rear_gearing, :input_html => {:value => 50}  
         = f.association :rear_tire, :collection => Tire.all(:order => 'manufacturer'),  :label_method => :make_and_model, :include_blank => false
         = f.input :rear_psi, :input_html => {:value => 10}  
   
     .gearing.hidden.options
       .front
-        = f.input :front_gearing, :input_html => {:value => 13}  
+        /= f.input :front_gearing, :input_html => {:value => 13}  
         = f.input :fork_spring_rate, :input_html => {:value => 4.6, :step => 0.1}  
         = f.input :fork_compression, :input_html => {:value => @session.default_compression}  
         = f.input :fork_rebound, :input_html => {:value => @session.default_rebound}
       .rear
-        = f.input :rear_gearing, :input_html => {:value => 50}  
+        /= f.input :rear_gearing, :input_html => {:value => 50}  
         = f.input :shock_spring_rate, :input_html => {:value => 5.4, :step => 0.1}  
         = f.input :compression_high, :input_html => {:value => @session.default_compression}
         = f.input :compression_low, :input_html => {:value => 1.25, :step => 0.05}
