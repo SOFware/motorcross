@@ -1,5 +1,5 @@
 Given /^I am a rider$/ do
-  @rider = Rider.create
+  # @rider = Rider.create
 end
 
 When /^I add a "([^"]*)" with make "([^"]*)" and model "([^"]*)"$/ do |equipment, make, model|
@@ -91,6 +91,18 @@ end
 Then /^show me the page$/ do
   save_and_open_page
 end
+
+When /^I record all the information on the current session$/ do
+  visit root_path
+  click_link 'Record Session' 
+  click_link 'tires'
+  fill_in 'Front psi', :with => 13
+end
+
+Then /^I should be shown the home page$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
 
 private
   def create_new(object)

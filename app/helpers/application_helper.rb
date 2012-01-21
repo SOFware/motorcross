@@ -6,5 +6,8 @@ module ApplicationHelper
     presenter
   end
   
-  
+  def self.fix_caps(str)
+    (str == str.upcase) ? str : str.titleize
+  end
+
 end

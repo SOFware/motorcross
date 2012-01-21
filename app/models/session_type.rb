@@ -10,4 +10,10 @@
 
 class SessionType < ActiveRecord::Base
   has_many :sessions
+
+  def name=(name)
+    self[:name] = ApplicationHelper::fix_caps(name)
+  end
+  
+
 end

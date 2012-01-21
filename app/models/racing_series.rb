@@ -9,4 +9,10 @@
 #
 
 class RacingSeries < ActiveRecord::Base
+  
+  def name=(name)
+    self[:name] = ApplicationHelper::fix_caps(name)
+  end
+  
+  
 end

@@ -2,7 +2,7 @@
   %h1 My Sessions
   
   .index_list
-    %table{:summary => 'sessions list'}
+    %table{:summary => 'cirumstances list'}
       %tr
         %th Date
         %th Time
@@ -12,12 +12,24 @@
           %td= session.date.strftime("%-d %b %y")
           %td= session.time.strftime("%l:%M%P")
           %td= session.session_type.name
-    %table{:summary => 'sessions list'}
+    %table{:summary => 'sessions list', :class => 'conditions'}
       %tr
         %th Track
         %th Weather      
+        %th Ground
+        
       - @sessions.each_with_index do |session, i|
         %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
           %td= session.track.name
           %td= session.sky_condition.name
+          %td= session.ground_state
+  
+  
+            = link_to "Conditions & Location", "#", :id => 'circumstances'
+          #menu_tire.inactive 
+            = link_to "Tires", "#", :id => 'tires'
+          #menu_gear.inactive 
+            = link_to "Gearing", "#", :id => 'gearing'
+          #menu_suspension.inactive 
+            = link_to "Suspension", "#", :id => 'suspension'
   

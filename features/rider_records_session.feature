@@ -9,5 +9,11 @@ Feature: Rider records session
     When I record on session on "January 15, 2012"
     Then my "session" list should show "2012-01-15"
   
+  @javascript
+  Scenario: rider records all session data
+    When I record all the information on the current session
+    Then I should be shown the home page
+  
+  
   
   

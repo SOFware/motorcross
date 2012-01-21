@@ -13,5 +13,14 @@
 
 class Bike < Equipment #ActiveRecord::Base
   belongs_to :rider
+
+  def manufacturer=(name)
+    self[:manufacturer] = ApplicationHelper::fix_caps(name)
+  end
+
+  def model=(name)
+    self[:model] = ApplicationHelper::fix_caps(name)
+  end
+
   
 end

@@ -37,12 +37,12 @@ class Session < ActiveRecord::Base
   belongs_to :front_tire, :class_name => "Tire"
   belongs_to :rear_tire, :class_name => "Tire"
   
-  def default_compression
-    12
+  delegate :ground_state, :to => :ground_condition, :allow_nil => true
+
+  def defaults
+    {compression: 12, rebound: 12}
   end
+
   
-  def default_rebound
-    12
-  end
 
 end

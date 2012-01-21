@@ -52,14 +52,14 @@
       .front
         /= f.input :front_gearing, :input_html => {:value => 13}  
         = f.input :fork_spring_rate, :input_html => {:value => 4.6, :step => 0.1}  
-        = f.input :fork_compression, :input_html => {:value => @session.default_compression}  
-        = f.input :fork_rebound, :input_html => {:value => @session.default_rebound}
+        = f.input :fork_compression, :input_html => {:value => @session.defaults[:compression]}
+        = f.input :fork_rebound, :input_html => {:value => @session.defaults[:rebound]}
       .rear
         /= f.input :rear_gearing, :input_html => {:value => 50}  
         = f.input :shock_spring_rate, :input_html => {:value => 5.4, :step => 0.1}  
-        = f.input :compression_high, :input_html => {:value => @session.default_compression}
+        = f.input :compression_high, :input_html => {:value => @session.defaults[:compression]}
         = f.input :compression_low, :input_html => {:value => 1.25, :step => 0.05}
-        = f.input :rebound, :input_html => {:value => @session.default_rebound}
+        = f.input :rebound, :input_html => {:value => @session.defaults[:rebound]}
         = f.input :sag, :input_html => {:value => 100}
       .notes
         = f.input :suspension_notes
@@ -67,35 +67,3 @@
     .button
       = f.button :submit, 'Save Session'
   
-  / Sessions will have:
-  /   *date
-  /   *time
-  /   track_id
-  /   *event_id
-  /   **ground_condition_id
-  /   **sky_condition_id
-  /   session_type (practice, test, moto1, moto2)
-  / 
-  / 
-  /   front tire psi
-  /   rear tire psi
-  / 
-  /   // suspension
-  /   Fork spring rate
-  /   Fork compressoin
-  /   Fork rebound
-  /   Shock spring rate
-  /   Shock compressoin
-  /   Shock rebound
-  /   Shock sag
-  /   Suspension notes/solutions
-  / 
-  /   // tires
-  /   front tire psi
-  /   rear tire psi
-  /   tire notes/solutions
-  / 
-  /   // gearing
-  /   front
-  /   rear
-  /   notes/solutions

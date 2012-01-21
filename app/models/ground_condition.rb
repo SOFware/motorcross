@@ -10,4 +10,12 @@
 
 class GroundCondition < ActiveRecord::Base
   has_many :sessions
+  
+  def name=(name)
+    self[:name] = ApplicationHelper::fix_caps(name)
+  end
+  
+  def ground_state
+    name
+  end
 end
