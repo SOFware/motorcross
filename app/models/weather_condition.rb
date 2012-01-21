@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: sky_conditions
+# Table name: weather_conditions
 #
 #  id         :integer         not null, primary key
 #  name       :string(255)
@@ -8,6 +8,11 @@
 #  updated_at :datetime
 #
 
-class SkyCondition < ActiveRecord::Base
+class WeatherCondition < ActiveRecord::Base
   has_many :sessions
+
+  def weather
+    name
+  end
+
 end

@@ -42,9 +42,9 @@ When /^I add an event called "([^"]*)"$/ do |event_name|
   end
 end
 
-When /^I add a sky condition like "([^"]*)"$/ do |sky_conditions|
-  create_new('sky condition') do
-    fill_in "sky_condition_name", :with => sky_conditions
+When /^I add a weather condition like "([^"]*)"$/ do |weather_conditions|
+  create_new('weather condition') do
+    fill_in "weather_condition_name", :with => weather_conditions
   end
 end
 

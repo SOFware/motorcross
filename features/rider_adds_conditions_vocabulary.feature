@@ -21,7 +21,7 @@ Feature: Rider adds conditions vocabulary
   Scenario: add ground conditions
     Given I am a rider
     When I add a soil condition like "mud"
-    Then my "ground condition" list should show "mud"
+    Then my "ground condition" list should show "Mud"
   
   Scenario: add sky conditions
     Given I am a rider

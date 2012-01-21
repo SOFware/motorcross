@@ -21,7 +21,7 @@
       - @sessions.each_with_index do |session, i|
         %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
           %td= session.track.name
-          %td= session.sky_condition.name
+          %td= session.weather
           %td= session.ground_state
   
   
