@@ -1,4 +1,4 @@
-%h1 Record Conditions & Configuration 
+%h1 Record Conditions & Configuration   
 
 .sessions
   .nav
@@ -17,9 +17,12 @@
         - time = Time.now
         = f.input :date, :as => :string, :input_html => {:class => 'focus_here',:value => time.strftime("%-d %b %y")}
         = f.input :time, :as => :string, :input_html => {:value => time.strftime("%l:%M%P")}
-
-        = f.association :track, :include_blank => false
-        = f.association :event, :include_blank => false
+        = f.association :event, :include_blank => true
+        // = f.association :track, :include_blank => false
+        .track
+          = f.label :track
+          = f.grouped_collection_select :track_id, Venue.order(:name), :tracks, :name, :id, :name, :include_blank => true
+        
       .conditions
         = f.association :ground_condition, :include_blank => false
         = f.association :weather_condition, :include_blank => false
@@ -67,3 +70,5 @@
     .button
       = f.button :submit, 'Save Session'
   
+:javascript
+  window.venue_hash = #{Event.venue_hash.to_json};

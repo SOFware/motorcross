@@ -19,5 +19,12 @@ class Event < ActiveRecord::Base
     self[:name] = ApplicationHelper::fix_caps(name)
   end
 
+  def self.venue_hash
+    hash = {}
+    all.each do |event|
+      hash[event.name] ||= event.venue ? event.venue.name : ""    
+    end
+    hash
+  end
 
 end
