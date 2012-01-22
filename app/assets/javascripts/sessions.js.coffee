@@ -1,6 +1,7 @@
 jQuery ->	
-	
-	for grouping in ['circumstances', 'tires', 'gearing', 'suspension']
+
+# show/hide options based on nav menu
+	for grouping in ['circumstances', 'tires', 'gearing', 'suspension', 'shock', 'fork']
 		do (grouping) ->
 			$('#'+grouping).click ->
 				$('.options').hide()
@@ -8,6 +9,8 @@ jQuery ->
 				$(this).parent().toggleClass('active inactive')				
 				$('.'+grouping).show()
 			
+
+# Dynamic menu for track based on event (and thus venue)
 	tracks = $('#session_track_id').html()
 	$('#session_track_id').parent().hide()
 	$('#session_event_id').change ->
@@ -20,3 +23,4 @@ jQuery ->
 		else
 			$('#session_track_id').parent().hide()			
 			$('#session_track_id').empty()			
+			

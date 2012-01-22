@@ -12,6 +12,10 @@ class Venue < ActiveRecord::Base
   has_many :tracks
   has_many :events
 
+  def venue_name
+    name
+  end
+
   def name=(name)
     self[:name] = ApplicationHelper::fix_caps(name)
   end

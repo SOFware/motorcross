@@ -17,6 +17,10 @@ class Track < ActiveRecord::Base
   belongs_to :soil
   belongs_to :venue
   has_many :sessions
+
+  def track_name
+    name
+  end
   
   def name=(name)
     self[:name] = ApplicationHelper::fix_caps(name)

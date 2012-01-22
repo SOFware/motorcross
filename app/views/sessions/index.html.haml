@@ -1,35 +1,98 @@
 .sessions
   %h1 My Sessions
+  .nav
+    #menu_circ.active 
+      = link_to "Conditions & Location", "#", :id => 'circumstances'
+    #menu_tire.inactive 
+      = link_to "Tires", "#", :id => 'tires'
+    #menu_gear.inactive 
+      = link_to "Gearing", "#", :id => 'gearing'
+    #menu_suspension.inactive 
+      = link_to "Fork", "#", :id => 'fork'
+    #menu_suspension.inactive 
+      = link_to "Shock", "#", :id => 'shock'
   
   .index_list
     %table{:summary => 'cirumstances list'}
       %tr
+        %th Event
         %th Date
         %th Time
         %th Session Type
       - @sessions.each_with_index do |session, i|
         %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
+          %td= session.event.name
           %td= session.date.strftime("%-d %b %y")
           %td= session.time.strftime("%l:%M%P")
           %td= session.session_type.name
-    %table{:summary => 'sessions list', :class => 'conditions'}
+
+    %table{:summary => 'sessions list', :class => 'circumstances options'}
       %tr
+        %th Venue
         %th Track
-        %th Weather      
-        %th Ground
-        
+        %th Weather
+        %th Temp
+        %th Ground        
       - @sessions.each_with_index do |session, i|
         %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
-          %td= session.track.name
+          %td= session.venue_name
+          %td= session.track_name
           %td= session.weather
+          %td= session.temp
           %td= session.ground_state
-  
-  
-            = link_to "Conditions & Location", "#", :id => 'circumstances'
-          #menu_tire.inactive 
-            = link_to "Tires", "#", :id => 'tires'
-          #menu_gear.inactive 
-            = link_to "Gearing", "#", :id => 'gearing'
-          #menu_suspension.inactive 
-            = link_to "Suspension", "#", :id => 'suspension'
-  
+
+    %table{:summary => 'sessions list', :class => 'tires options hidden'}  
+      %tr
+        %th Front Tire
+        %th Front PSI
+        %th Rear Tire
+        %th Rear PSI
+      - @sessions.each_with_index do |session, i|
+        %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
+          %td= session.front_tire.make_and_model
+          %td= session.front_psi
+          %td= session.rear_tire.make_and_model
+          %td= session.rear_psi
+
+    %table{:summary => 'sessions list', :class => 'gearing options hidden'}  
+      %tr
+        %th Front
+        %th Rear
+      - @sessions.each_with_index do |session, i|
+        %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
+          %td= session.front_gearing
+          %td= session.rear_gearing
+    
+
+    %table{:summary => 'sessions list', :class => 'fork options hidden'}  
+      %tr
+        %th Spring
+        %th Compression
+        %th Rebound
+      - @sessions.each_with_index do |session, i|
+        %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
+          %td= session.fork_spring_rate
+          %td= session.fork_compression
+          %td= session.fork_rebound
+
+
+    %table{:summary => 'sessions list', :class => 'shock options hidden'}  
+      %tr
+        %th Spring
+        %th Compr Hi
+        %th Compr Lo
+        %th Rebound
+        %th Sag
+      - @sessions.each_with_index do |session, i|
+        %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
+          %td= session.shock_spring_rate
+          %td= session.compression_high
+          %td= session.compression_low
+          %td= session.rebound
+          %td= session.sag
+
+/ #  session_notes        :text
+/ #  tire_notes           :text
+/ #  suspension_notes     :text
+/ #  gearing_notes        :text
+/ #  temp                 :integer

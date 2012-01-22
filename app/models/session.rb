@@ -43,6 +43,9 @@ class Session < ActiveRecord::Base
   belongs_to :rear_tire, :class_name => "Tire"
   
   delegate :ground_state, :to => :ground_condition, :allow_nil => true
+  delegate :weather, :to => :weather_condition, :allow_nil => true
+  delegate :venue_name, :to => :event, :allow_nil => true
+  delegate :track_name, :to => :track, :allow_nil => true
 
   def defaults
     {compression: 12, rebound: 12}

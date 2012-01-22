@@ -1,12 +1,5 @@
 .sessions {
-	// @include showgrid;
-	$width: 8;
-
-	.index_list { 
-		@include index_list(3, 300); 
-		table { float: left;}
-	}
-
+	.hidden {display: none;}
 	.nav {
 		div {
 			border-style: solid;
@@ -18,16 +11,30 @@
 			padding-top: 3px;
 		}
 		.active { 
-			@include column(6);
+			@include column(4.8);
 			margin: 0px 0px 35px 0px;
 			background-color: #476ece;
 			}
 		.inactive { 
-			@include column(6);
+			@include column(4.8);
 			margin: 0px 0px 35px 0px;
 			.hidden {display: none;}
 			}
 	}
+
+	.index_list { 
+		@include index_list(3, 300); 
+		table { float: left;}
+		td {min-width: 75px}
+		.options td {text-align: center}
+		.circumstances {}
+		.tires {}
+		.gearing {}
+		.suspension {}
+		.fork {}
+		.shock {}
+	}
+
 	.notes { 
 		@include column(24);
 		@include push(1);
@@ -36,52 +43,55 @@
 			height: 120px;
 			}
 		}
-	.circumstances {
-		select {
-			width: 170px;
+
+	.new {
+		.circumstances {
+			select {
+				width: 170px;
+			}
+			input[type='number'] {
+			  width: 50px;
+			}
+			@include column(24);
+	    .time {
+				@include push(2.4); 
+				@include column(8);
+			}                 
+	    .conditions {     
+				@include column(9, true);	
+				@include push(2);
+				label { width: 150px; }
+			}
+	  }
+	  .tires, .gearing {
+			@include column(24);
+			input[type='number'] {
+			  width: 50px;
+			}
+			.front {
+				@include push(4.5);
+				@include column(7);
+			}
+			.rear {
+				@include column(7, true);
+			}
 		}
-		input[type='number'] {
-		  width: 50px;
-		}
-		@include column(24);
-    .time {
-			@include push(2.4); 
-			@include column($width);
-		}                 
-    .conditions {     
-			@include column(9, true);	
-			@include push(2);
+	  .suspension {
+			input[type='number'] {
+			  width: 50px;
+			}
+			@include column(24);
 			label { width: 150px; }
+			.front {
+				@include push(4);
+				@include column(8);
+			}
+			.rear {
+				@include column(8, true);			
+			}
 		}
-  }
-  .tires, .gearing {
-		@include column(24);
-		input[type='number'] {
-		  width: 50px;
-		}
-		.front {
-			@include push(4.5);
-			@include column(7);
-		}
-		.rear {
-			@include column(7, true);
-		}
+		.hidden {display: none}
 	}
-  .suspension {
-		input[type='number'] {
-		  width: 50px;
-		}
-		@include column(24);
-		label { width: 150px; }
-		.front {
-			@include push(4);
-			@include column(8);
-		}
-		.rear {
-			@include column(8, true);			
-		}
-	}
-	.hidden {display: none;}
   .button {
 		input[type='submit'] {
 		  margin-left: 0px;
