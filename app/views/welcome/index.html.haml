@@ -3,7 +3,7 @@
 .welcome
   .record_session
     %p.button= link_to "Record Session", new_session_path
-    %p.button= link_to "Past Sessions", sessions_path
+    %p.button= link_to("Past Sessions", sessions_path) unless @sessions.empty?
   
   .equipment
     %p.button= link_to "Bikes", bikes_path
