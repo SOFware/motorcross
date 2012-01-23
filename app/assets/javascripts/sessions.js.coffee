@@ -24,3 +24,6 @@ jQuery ->
 			$('#session_track_id').parent().hide()			
 			$('#session_track_id').empty()			
 			
+#arrow for sortable columns
+	$('.asc').parent().append('<div class="up"><div>')
+	$('.desc').parent().append('<div class="down"><div>')

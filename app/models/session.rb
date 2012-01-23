@@ -47,6 +47,9 @@ class Session < ActiveRecord::Base
   delegate :venue_name, :to => :event, :allow_nil => true
   delegate :track_name, :to => :track, :allow_nil => true
 
+  scope :venue, lambda {|direction| joins(:track).order("venue_id #{direction}")}
+  scope :soil, lambda {|direction| joins(:track).order("soil_id #{direction}")}
+
   def defaults
     {compression: 12, rebound: 12}
   end

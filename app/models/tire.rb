@@ -9,6 +9,7 @@
 #  created_at   :datetime
 #  updated_at   :datetime
 #  type         :string(255)
+#  year         :integer
 #
 
 class Tire < Equipment #ActiveRecord::Base

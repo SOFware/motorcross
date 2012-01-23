@@ -23,6 +23,7 @@
 	}
 
 	.index_list { 
+		// a { float: left}
 		@include index_list(3, 300); 
 		table { float: left;}
 		td {min-width: 75px}

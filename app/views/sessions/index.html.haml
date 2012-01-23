@@ -1,5 +1,7 @@
 .sessions
   %h1 My Sessions
+  = link_to "Record Session", new_session_path  
+  %p
   .nav
     #menu_circ.active 
       = link_to "Conditions & Location", "#", :id => 'circumstances'
@@ -11,14 +13,16 @@
       = link_to "Fork", "#", :id => 'fork'
     #menu_suspension.inactive 
       = link_to "Shock", "#", :id => 'shock'
+
+
   
   .index_list
     %table{:summary => 'cirumstances list'}
       %tr
-        %th Event
-        %th Date
-        %th Time
-        %th Session Type
+        %th.arrow= sortable "event_id", "Event"
+        %th.arrow= sortable "date"
+        %th.arrow= sortable "time"
+        %th.arrow= sortable "session_type_id", "Session Type"
       - @sessions.each_with_index do |session, i|
         %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
           %td= session.event.name
@@ -28,11 +32,11 @@
 
     %table{:summary => 'sessions list', :class => 'circumstances options'}
       %tr
-        %th Venue
-        %th Track
-        %th Weather
-        %th Temp
-        %th Ground        
+        %th.arrow= sortable "venue"
+        %th.arrow= sortable "track_id", "Track"
+        %th.arrow= sortable 'weather_condition_id', "Weather"
+        %th.arrow= sortable "temp"
+        %th.arrow= sortable 'ground_condition_id', "Ground"
       - @sessions.each_with_index do |session, i|
         %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
           %td= session.venue_name
@@ -43,10 +47,10 @@
 
     %table{:summary => 'sessions list', :class => 'tires options hidden'}  
       %tr
-        %th Front Tire
-        %th Front PSI
-        %th Rear Tire
-        %th Rear PSI
+        %th.arrow= sortable 'front_tire_id', "Front Tire"
+        %th.arrow= sortable 'front_psi', "Front PSI"
+        %th.arrow= sortable 'rear_tire_id', "Rear Tire"
+        %th.arrow= sortable 'rear_psi', "Rear PSI"
       - @sessions.each_with_index do |session, i|
         %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
           %td= session.front_tire.make_and_model

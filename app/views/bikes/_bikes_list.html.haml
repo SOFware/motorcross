@@ -2,7 +2,9 @@
   %tr
     %th Model
     %th Manufacturer
+    %th Year
   - bikes.each_with_index do |bike, i|
     %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
       %td= bike.model
       %td= bike.manufacturer
+      %td= bike.year

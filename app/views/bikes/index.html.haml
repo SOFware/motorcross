@@ -4,6 +4,7 @@
     = simple_form_for @bike do |f|
       = f.input :manufacturer, :input_html => {:class => 'focus_here'}
       = f.input :model
+      = f.input :year, :input_html => {:value => Date.today.year}
       = f.button :submit, {:id => 'new_bike'}
 
   .index_list
