@@ -33,7 +33,10 @@ jQuery ->
 			
 			
 # tablesorter
-	# $('#sessionsTable').tablesorter( {sortList: [[0,0], [1,0]]} )
+	$('#sessionsTable').tablesorter( {
+		sortList: [[0,0], [1,0]],
+		debug: true
+		} )
 #arrow for sortable columns
 	# $('.asc').parent().append('<div class="up"><div>')
 	# $('.desc').parent().append('<div class="down"><div>')

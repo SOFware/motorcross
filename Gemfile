@@ -20,6 +20,8 @@ group :assets do
   gem 'fancy-buttons'  
 end
 
+gem 'jquery-tablesorter'
+
 gem 'thin'
 gem 'jquery-rails'
 gem 'haml-rails'

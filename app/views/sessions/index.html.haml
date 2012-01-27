@@ -21,36 +21,21 @@
     %table#sessionsTable.tablesorter{:summary => 'cirumstances list'}
       %thead
         %tr
-          %th.arrow Event
-          %th.arrow Date
-          %th.arrow Time
-          %th.arrow Session Type
-          %th.options.circumstances.arrow Venue
-          %th.options.circumstances.arrow Track
-          %th.options.circumstances.arrow Weather
-          %th.options.circumstances.arrow Temp
-          %th.options.circumstances.arrow Ground
-          %th.options.tires.arrow Bike
-          %th.options.tires.arrow Front Tire
-          %th.options.tires.arrow Front PSI
-          %th.options.tires.arrow Rear Tire
-          %th.options.tires.arrow Rear PSI
-          
-          / %th.arrow= sortable "event_id", "Event"
-          / %th.arrow= sortable "date"
-          / %th.arrow= sortable "time"
-          / %th.arrow= sortable "session_type_id", "Session Type"
-          / %th.options.circumstances.arrow= sortable "venue"
-          / %th.options.circumstances.arrow= sortable "track_id", "Track"
-          / %th.options.circumstances.arrow= sortable 'weather_condition_id', "Weather"
-          / %th.options.circumstances.arrow= sortable "temp"
-          / %th.options.circumstances.arrow= sortable 'ground_condition_id', "Ground"
-          / %th.options.tires.arrow= sortable 'bike_id', "Bike"
-          / %th.options.tires.arrow= sortable 'front_tire_id', "Front Tire"
-          / %th.options.tires.arrow= sortable 'front_psi', "Front PSI"
-          / %th.options.tires.arrow= sortable 'rear_tire_id', "Rear Tire"
-          / %th.options.tires.arrow= sortable 'rear_psi', "Rear PSI"
-          / 
+          %th Event
+          %th Date
+          %th Time
+          %th Session 
+          %th.options.circumstances Venue
+          %th.options.circumstances Track
+          %th.options.circumstances Weather
+          %th.options.circumstances Temp
+          %th.options.circumstances Ground
+          %th.options.tires Bike
+          %th.options.tires Front Tire
+          %th.options.tires Front PSI
+          %th.options.tires Rear Tire
+          %th.options.tires Rear PSI
+
           %th.options.gearing Front
           %th.options.gearing Rear
           %th.options.fork Spring
@@ -61,11 +46,11 @@
           %th.options.shock Compr Lo
           %th.options.shock Rebound
           %th.options.shock Sag
-        
-        
-      - @sessions.each_with_index do |session, i|
-        %tbody
-          %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
+
+      %tbody
+        - @sessions.each_with_index do |session, i|
+
+          %tr 
             %td= session.event.name
             %td= session.date.strftime("%-d %b %y")
             %td= session.time.strftime("%l:%M%P")
@@ -90,11 +75,27 @@
             %td.options.shock= session.compression_low
             %td.options.shock= session.rebound
             %td.options.shock= session.sag
-          
-      
+
+
 
 / #  session_notes        :text
 / #  tire_notes           :text
 / #  suspension_notes     :text
 / #  gearing_notes        :text
 / #  temp                 :integer
+
+/ %th.arrow= sortable "event_id", "Event"
+/ %th.arrow= sortable "date"
+/ %th.arrow= sortable "time"
+/ %th.arrow= sortable "session_type_id", "Session Type"
+/ %th.options.circumstances.arrow= sortable "venue"
+/ %th.options.circumstances.arrow= sortable "track_id", "Track"
+/ %th.options.circumstances.arrow= sortable 'weather_condition_id', "Weather"
+/ %th.options.circumstances.arrow= sortable "temp"
+/ %th.options.circumstances.arrow= sortable 'ground_condition_id', "Ground"
+/ %th.options.tires.arrow= sortable 'bike_id', "Bike"
+/ %th.options.tires.arrow= sortable 'front_tire_id', "Front Tire"
+/ %th.options.tires.arrow= sortable 'front_psi', "Front PSI"
+/ %th.options.tires.arrow= sortable 'rear_tire_id', "Rear Tire"
+/ %th.options.tires.arrow= sortable 'rear_psi', "Rear PSI"
+/ 
