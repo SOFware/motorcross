@@ -5,7 +5,7 @@
     #menu_circ.active 
       = link_to "Conditions & Location", "#", :id => 'circumstances'
     #menu_tire.inactive 
-      = link_to "Tires", "#", :id => 'tires'
+      = link_to "Bike & Tires", "#", :id => 'tires'
     #menu_gear.inactive 
       = link_to "Gearing", "#", :id => 'gearing'
     #menu_suspension.inactive 
@@ -42,6 +42,8 @@
   
   
       .tires.hidden.options
+        .bike
+          = f.association :bike, :collection => Bike.all(:order => 'manufacturer'), :label_method => :make_and_model, :include_blank => true
         .front
           = f.association :front_tire, :collection => Tire.all(:order => 'manufacturer'),  :label_method => :make_and_model, :include_blank => false
           = f.input :front_psi, :input_html => { :value => 12}

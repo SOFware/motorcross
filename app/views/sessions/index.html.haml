@@ -17,83 +17,81 @@
 
   
   .index_list
-    %table{:summary => 'cirumstances list'}
-      %tr
-        %th.arrow= sortable "event_id", "Event"
-        %th.arrow= sortable "date"
-        %th.arrow= sortable "time"
-        %th.arrow= sortable "session_type_id", "Session Type"
+    = hidden_field_tag :option, @option 
+    %table#sessionsTable.tablesorter{:summary => 'cirumstances list'}
+      %thead
+        %tr
+          %th.arrow Event
+          %th.arrow Date
+          %th.arrow Time
+          %th.arrow Session Type
+          %th.options.circumstances.arrow Venue
+          %th.options.circumstances.arrow Track
+          %th.options.circumstances.arrow Weather
+          %th.options.circumstances.arrow Temp
+          %th.options.circumstances.arrow Ground
+          %th.options.tires.arrow Bike
+          %th.options.tires.arrow Front Tire
+          %th.options.tires.arrow Front PSI
+          %th.options.tires.arrow Rear Tire
+          %th.options.tires.arrow Rear PSI
+          
+          / %th.arrow= sortable "event_id", "Event"
+          / %th.arrow= sortable "date"
+          / %th.arrow= sortable "time"
+          / %th.arrow= sortable "session_type_id", "Session Type"
+          / %th.options.circumstances.arrow= sortable "venue"
+          / %th.options.circumstances.arrow= sortable "track_id", "Track"
+          / %th.options.circumstances.arrow= sortable 'weather_condition_id', "Weather"
+          / %th.options.circumstances.arrow= sortable "temp"
+          / %th.options.circumstances.arrow= sortable 'ground_condition_id', "Ground"
+          / %th.options.tires.arrow= sortable 'bike_id', "Bike"
+          / %th.options.tires.arrow= sortable 'front_tire_id', "Front Tire"
+          / %th.options.tires.arrow= sortable 'front_psi', "Front PSI"
+          / %th.options.tires.arrow= sortable 'rear_tire_id', "Rear Tire"
+          / %th.options.tires.arrow= sortable 'rear_psi', "Rear PSI"
+          / 
+          %th.options.gearing Front
+          %th.options.gearing Rear
+          %th.options.fork Spring
+          %th.options.fork Compression
+          %th.options.fork Rebound
+          %th.options.shock Spring
+          %th.options.shock Compr Hi
+          %th.options.shock Compr Lo
+          %th.options.shock Rebound
+          %th.options.shock Sag
+        
+        
       - @sessions.each_with_index do |session, i|
-        %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
-          %td= session.event.name
-          %td= session.date.strftime("%-d %b %y")
-          %td= session.time.strftime("%l:%M%P")
-          %td= session.session_type.name
-
-    %table{:summary => 'sessions list', :class => 'circumstances options'}
-      %tr
-        %th.arrow= sortable "venue"
-        %th.arrow= sortable "track_id", "Track"
-        %th.arrow= sortable 'weather_condition_id', "Weather"
-        %th.arrow= sortable "temp"
-        %th.arrow= sortable 'ground_condition_id', "Ground"
-      - @sessions.each_with_index do |session, i|
-        %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
-          %td= session.venue_name
-          %td= session.track_name
-          %td= session.weather
-          %td= session.temp
-          %td= session.ground_state
-
-    %table{:summary => 'sessions list', :class => 'tires options hidden'}  
-      %tr
-        %th.arrow= sortable 'front_tire_id', "Front Tire"
-        %th.arrow= sortable 'front_psi', "Front PSI"
-        %th.arrow= sortable 'rear_tire_id', "Rear Tire"
-        %th.arrow= sortable 'rear_psi', "Rear PSI"
-      - @sessions.each_with_index do |session, i|
-        %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
-          %td= session.front_tire.make_and_model
-          %td= session.front_psi
-          %td= session.rear_tire.make_and_model
-          %td= session.rear_psi
-
-    %table{:summary => 'sessions list', :class => 'gearing options hidden'}  
-      %tr
-        %th Front
-        %th Rear
-      - @sessions.each_with_index do |session, i|
-        %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
-          %td= session.front_gearing
-          %td= session.rear_gearing
-    
-
-    %table{:summary => 'sessions list', :class => 'fork options hidden'}  
-      %tr
-        %th Spring
-        %th Compression
-        %th Rebound
-      - @sessions.each_with_index do |session, i|
-        %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
-          %td= session.fork_spring_rate
-          %td= session.fork_compression
-          %td= session.fork_rebound
-
-
-    %table{:summary => 'sessions list', :class => 'shock options hidden'}  
-      %tr
-        %th Spring
-        %th Compr Hi
-        %th Compr Lo
-        %th Rebound
-        %th Sag
-      - @sessions.each_with_index do |session, i|
-        %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
-          %td= session.shock_spring_rate
-          %td= session.compression_high
-          %td= session.compression_low
-          %td= session.rebound
-          %td= session.sag
+        %tbody
+          %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
+            %td= session.event.name
+            %td= session.date.strftime("%-d %b %y")
+            %td= session.time.strftime("%l:%M%P")
+            %td= session.session_type.name
+            %td.options.circumstances= session.venue_name
+            %td.options.circumstances= session.track_name
+            %td.options.circumstances= session.weather
+            %td.options.circumstances= session.temp
+            %td.options.circumstances= session.ground_state
+            %td.options.tires= session.bike.make_and_model
+            %td.options.tires= session.front_tire.make_and_model
+            %td.options.tires= session.front_psi
+            %td.options.tires= session.rear_tire.make_and_model
+            %td.options.tires= session.rear_psi
+            %td.options.gearing= session.front_gearing
+            %td.options.gearing= session.rear_gearing
+            %td.options.fork= session.fork_spring_rate
+            %td.options.fork= session.fork_compression
+            %td.options.fork= session.fork_rebound
+            %td.options.shock= session.shock_spring_rate
+            %td.options.shock= session.compression_high
+            %td.options.shock= session.compression_low
+            %td.options.shock= session.rebound
+            %td.options.shock= session.sag
+          
+      
 
 / #  session_notes        :text
 / #  tire_notes           :text

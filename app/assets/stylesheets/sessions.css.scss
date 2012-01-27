@@ -65,16 +65,20 @@
 			}
 	  }
 	  .tires, .gearing {
+			$tire_width: 7;
 			@include column(24);
 			input[type='number'] {
 			  width: 50px;
 			}
 			.front {
-				@include push(4.5);
-				@include column(7);
+				@include column($tire_width);
+			}
+			.bike {
+				@include push(1);
+				@include column($tire_width);
 			}
 			.rear {
-				@include column(7, true);
+				@include column($tire_width, true);
 			}
 		}
 	  .suspension {

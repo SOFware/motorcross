@@ -17,6 +17,6 @@ class Equipment < ActiveRecord::Base
   
   
   def make_and_model
-    "#{manufacturer} #{model}"
+    year == nil ? "#{manufacturer} #{model}" : "#{year} #{manufacturer} #{model}"
   end
 end

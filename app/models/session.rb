@@ -35,6 +35,7 @@
 
 class Session < ActiveRecord::Base
   belongs_to :track
+  belongs_to :bike
   belongs_to :event
   belongs_to :ground_condition
   belongs_to :weather_condition

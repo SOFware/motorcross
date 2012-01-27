@@ -2,11 +2,13 @@ class SessionsController < ApplicationController
   helper_method :sort_column, :sort_direction
   
   def index
+    # raise 'b'
     if distant_relation
       @sessions = Session.send(params[:sort].to_sym, sort_direction)
     else
       @sessions = Session.order(sort_column + " " + sort_direction)    
     end
+    @option = params[:option] || 'circumstances'
   end
 
   def new

@@ -14,6 +14,7 @@
 
 class Bike < Equipment #ActiveRecord::Base
   belongs_to :rider
+  has_many :sessions
 
   def manufacturer=(name)
     self[:manufacturer] = ApplicationHelper::fix_caps(name)

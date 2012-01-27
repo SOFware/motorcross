@@ -8,6 +8,13 @@ jQuery ->
 				$('.active').toggleClass('active inactive')
 				$(this).parent().toggleClass('active inactive')				
 				$('.'+grouping).show()
+				$("#option").val(grouping)
+				# currentHref = $('th.arrow a:first').attr('href')
+				# 				currentOption = currentHref.match(option=[*])
+				# 				
+				$('#gearing_table th.arrow a').each (index, link) ->
+					initialHref = $(link).attr('href')
+					$(link).attr('href', "#{intialHref}&option=#{grouping}" )
 			
 
 # Dynamic menu for track based on event (and thus venue)
@@ -24,6 +31,13 @@ jQuery ->
 			$('#session_track_id').parent().hide()			
 			$('#session_track_id').empty()			
 			
+			
+# tablesorter
+	# $('#sessionsTable').tablesorter( {sortList: [[0,0], [1,0]]} )
 #arrow for sortable columns
-	$('.asc').parent().append('<div class="up"><div>')
-	$('.desc').parent().append('<div class="down"><div>')
+	# $('.asc').parent().append('<div class="up"><div>')
+	# $('.desc').parent().append('<div class="down"><div>')
+		
+# keep the current option selected when sorting by column
+	option = $("#option").val()
+	$('#'+option).click()

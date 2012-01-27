@@ -1,0 +1,5 @@
+%tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
+  %td= session.event.name
+  %td= session.date.strftime("%-d %b %y")
+  %td= session.time.strftime("%l:%M%P")
+  %td= session.session_type.name
