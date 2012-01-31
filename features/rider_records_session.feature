@@ -15,5 +15,14 @@ Feature: Rider records session
     Then I should be shown the home page
   
   
+  @wip
+  Scenario: mechanic records lap times
+    Given 
+    When I create a session
+    Then I should see a start stopwatch button
+  
+  
+  
+  
   
   

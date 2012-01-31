@@ -19,6 +19,7 @@ class SessionsController < ApplicationController
     # raise "b"
     @session = Session.create(params[:session])
     redirect_to :action => "index"
+    # redirect_to :controller => :laps, :action => "lap_timer"
   end
 
 

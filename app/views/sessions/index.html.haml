@@ -21,11 +21,11 @@
     %table#sessionsTable.tablesorter{:summary => 'cirumstances list'}
       %thead
         %tr
-          %th Event
+          %th Location
           %th Date
           %th Time
           %th Session 
-          %th.options.circumstances Venue
+          / %th.options.circumstances Venue
           %th.options.circumstances Track
           %th.options.circumstances Weather
           %th.options.circumstances Temp
@@ -51,11 +51,11 @@
         - @sessions.each_with_index do |session, i|
 
           %tr 
-            %td= session.event.name
+            %td= session.venue.name
             %td= session.date.strftime("%-d %b %y")
             %td= session.time.strftime("%l:%M%P")
             %td= session.session_type.name
-            %td.options.circumstances= session.venue_name
+            / %td.options.circumstances= session.venue_name
             %td.options.circumstances= session.track_name
             %td.options.circumstances= session.weather
             %td.options.circumstances= session.temp

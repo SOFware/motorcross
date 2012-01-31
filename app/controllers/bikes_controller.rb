@@ -19,4 +19,22 @@ class BikesController < ApplicationController
     end    
   end
 
+  def edit
+    @bike = Bike.find(params[:id])
+  end
+  
+  def update
+    @bike = Bike.find(params[:id])
+    @bike.update_attributes(params[:bike])
+    redirect_to :action => 'index'
+  end
+  
+  def delete
+    raise 'b'
+    @bike = Bike.find(params[:id])
+    @bike.destroy
+    redirect_to :action => 'index'
+  end
+
+
 end

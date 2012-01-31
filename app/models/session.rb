@@ -6,7 +6,7 @@
 #  date                 :date
 #  time                 :time
 #  track_id             :integer
-#  event_id             :integer
+#  venue_id             :integer
 #  ground_condition_id  :integer
 #  weather_condition_id :integer
 #  front_psi            :float
@@ -31,12 +31,13 @@
 #  suspension_notes     :text
 #  gearing_notes        :text
 #  temp                 :integer
+#  bike_id              :integer
 #
 
 class Session < ActiveRecord::Base
   belongs_to :track
   belongs_to :bike
-  belongs_to :event
+  belongs_to :venue
   belongs_to :ground_condition
   belongs_to :weather_condition
   belongs_to :session_type

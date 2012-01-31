@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120123174017) do
+ActiveRecord::Schema.define(:version => 20120131164936) do
 
   create_table "equipment", :force => true do |t|
     t.string   "manufacturer"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(:version => 20120123174017) do
     t.date     "date"
     t.time     "time"
     t.integer  "track_id"
-    t.integer  "event_id"
+    t.integer  "venue_id"
     t.integer  "ground_condition_id"
     t.integer  "weather_condition_id"
     t.float    "front_psi"

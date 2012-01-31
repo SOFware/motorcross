@@ -20,8 +20,8 @@ jQuery ->
 # Dynamic menu for track based on event (and thus venue)
 	tracks = $('#session_track_id').html()
 	$('#session_track_id').parent().hide()
-	$('#session_event_id').change ->
-		event = $('#session_event_id :selected').text()
+	$('#session_venue_id').change ->
+		event = $('#session_venue_id :selected').text()
 		venue = window.venue_hash[event]
 		options = $(tracks).filter("optgroup[label='#{venue}']").html()
 		if options

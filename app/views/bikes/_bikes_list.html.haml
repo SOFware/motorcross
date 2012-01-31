@@ -3,8 +3,12 @@
     %th Model
     %th Manufacturer
     %th Year
+    %th Actions
   - bikes.each_with_index do |bike, i|
     %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
       %td= bike.model
       %td= bike.manufacturer
       %td= bike.year
+      %td
+        = link_to 'Edit', edit_bike_path(bike)
+        = link_to 'Delete', :method => :delete, :confirm => "Are you sure?"

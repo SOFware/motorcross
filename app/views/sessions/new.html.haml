@@ -15,10 +15,11 @@
     = simple_form_for @session, :defaults => {:include_blank => false} do |f|    
       .circumstances.options
         .time
-          - time = Time.now
-          = f.input :date, :as => :string, :input_html => {:class => 'focus_here',:value => time.strftime("%-d %b %y")}
+          - time, date = Time.now, Date.today
+          = f.input :date, :as => :string, :input_html => {:class => 'focus_here',:value => date.strftime("%b %d, %Y")}
           = f.input :time, :as => :string, :input_html => {:value => time.strftime("%l:%M%P")}
-          = f.association :event, :include_blank => true
+          = f.label :venue, "Location"
+          = f.association :venue, :include_blank => true, :label => false
           // = f.association :track, :include_blank => false
           .track
             = f.label :track
@@ -32,7 +33,7 @@
         .notes
           = f.input :session_notes
   
-      .gearing.hidden.options
+      .gearing.hidden.option
         .front
           = f.input :front_gearing, :input_html => {:value => 13}        
         .rear
@@ -71,7 +72,7 @@
           = f.input :suspension_notes
   
       .button
-        = f.button :submit, 'Save Session'
+        = f.button :submit, 'Save Session', :confirm => "Finished recording set-up?"
   
 :javascript
   window.venue_hash = #{Event.venue_hash.to_json};
