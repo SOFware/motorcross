@@ -1,6 +1,7 @@
 class BikesController < ApplicationController
   
   def index
+    # raise 'b'
     @bike = Bike.new
     @bikes = Bike.all
   end
@@ -29,8 +30,10 @@ class BikesController < ApplicationController
     redirect_to :action => 'index'
   end
   
-  def delete
-    raise 'b'
+
+  
+  def destroy
+    # raise 'b'
     @bike = Bike.find(params[:id])
     @bike.destroy
     redirect_to :action => 'index'

@@ -8,7 +8,7 @@
 	}
 	
 	.index_list {
-		@include index_list
+		@include index_list(2, 370px)
 	}
 	
 }

@@ -2,7 +2,12 @@
   %tr
     %th Manufacturer  
     %th Model
+    %th Actions
   - tires.each_with_index do |tire, i|
     %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
       %td= tire.manufacturer
       %td= tire.model
+      %td
+        = link_to 'Edit', edit_tire_path(tire)
+        .delete= button_to "X", {:action => :destroy, :id => tire.id}, :confirm => "Are you sure?", :method => :delete
+      

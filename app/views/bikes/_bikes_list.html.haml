@@ -11,4 +11,5 @@
       %td= bike.year
       %td
         = link_to 'Edit', edit_bike_path(bike)
-        = link_to 'Delete', :method => :delete, :confirm => "Are you sure?"
+        .delete= button_to "X", {:action => :destroy, :id => bike.id}, :confirm => "Are you sure?", :method => :delete
+				
