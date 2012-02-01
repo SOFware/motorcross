@@ -1,6 +1,10 @@
 %table{:summary => 'venue list'}
   %tr
     %th Name
+    %th Actions
   - venues.each_with_index do |venue, i|
     %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
       %td= venue.name
+      %td
+        = link_to 'Edit', edit_venue_path(venue)
+        .delete= button_to "X", {:action => :destroy, :id => venue.id}, :confirm => "Are you sure?", :method => :delete

@@ -1,0 +1,6 @@
+%h1 Edit Location
+.venues
+  .add_new
+    = simple_form_for @venue do |f|
+      = f.input :name, :input_html => {:class => 'focus_here'}
+      = f.button :submit, {:id => 'new_venue'}

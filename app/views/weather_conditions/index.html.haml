@@ -1,4 +1,4 @@
-%h1 Sky Conditions
+%h1 Weather Conditions
 .weather_conditions
   .add_new
     = simple_form_for @condition do |f|
@@ -9,6 +9,10 @@
     %table{:summary => 'sky conditions list'}
       %tr
         %th Name
+        %th Actions
       - @conditions.each_with_index do |condition, i|
         %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
           %td= condition.name
+          %td
+            = link_to 'Edit', edit_weather_condition_path(condition)
+            .delete= button_to "X", {:action => :destroy, :id => condition.id}, :confirm => "Are you sure?", :method => :delete

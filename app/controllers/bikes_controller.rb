@@ -30,8 +30,6 @@ class BikesController < ApplicationController
     redirect_to :action => 'index'
   end
   
-
-  
   def destroy
     # raise 'b'
     @bike = Bike.find(params[:id])

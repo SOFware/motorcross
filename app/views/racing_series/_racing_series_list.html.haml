@@ -4,3 +4,6 @@
   - all_racing_series.each_with_index do |race, i|
     %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
       %td= race.name
+      %td
+        = link_to 'Edit', edit_racing_series_path(race)
+        .delete= button_to "X", {:action => :destroy, :id => race.id}, :confirm => "Are you sure?", :method => :delete

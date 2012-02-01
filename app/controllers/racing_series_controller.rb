@@ -16,6 +16,22 @@ class RacingSeriesController < ApplicationController
     else
       redirect_to :action => "index"
     end
-    
   end
+  
+
+  def edit
+    @racing_series = RacingSeries.find(params[:id])
+  end
+  
+  def update
+    @racing_series = RacingSeries.find(params[:id])
+    @racing_series.update_attributes(params[:racing_series])
+    redirect_to :action => 'index'
+  end
+  
+  def destroy
+    @racing_series = RacingSeries.find(params[:id])
+    @racing_series.destroy
+    redirect_to :action => 'index'
+  end  
 end

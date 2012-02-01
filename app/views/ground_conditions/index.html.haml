@@ -9,6 +9,10 @@
     %table{:summary => 'ground conditions list'}
       %tr
         %th Name
+        %th Actions
       - @conditions.each_with_index do |condition, i|
         %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
           %td= condition.name
+          %td
+            = link_to 'Edit', edit_ground_condition_path(condition)
+            .delete= button_to "X", {:action => :destroy, :id => condition.id}, :confirm => "Are you sure?", :method => :delete

@@ -1,0 +1,6 @@
+%h1 Edit Session Type  
+.session_types
+  .add_new
+    = simple_form_for @type do |f|
+      = f.input :name, :input_html => {:class => 'focus_here'}
+      = f.button :submit

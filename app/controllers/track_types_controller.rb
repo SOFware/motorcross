@@ -16,7 +16,24 @@ class TrackTypesController < ApplicationController
     else
       redirect_to :action => 'index'      
     end
+  end
 
+
+  def edit
+    @track_type = TrackType.find(params[:id])
+  end
+  
+  def update
+    @track_type = TrackType.find(params[:id])
+    @track_type.update_attributes(params[:track_type])
+    redirect_to :action => 'index'
+  end
+  
+  def destroy
+    # raise 'b'
+    @track_type = TrackType.find(params[:id])
+    @track_type.destroy
+    redirect_to :action => 'index'
   end
 
 end

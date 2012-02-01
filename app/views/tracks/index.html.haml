@@ -19,6 +19,7 @@
         %th Track Type
         %th Soil Type
         %th Altitude      
+        %th Actions      
       - @tracks.each_with_index do |track, i|
         %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
           %td= track.name
@@ -26,3 +27,6 @@
           %td= track.track_type.name
           %td= track.soil.name
           %td= track.altitude
+          %td
+            = link_to 'Edit', edit_track_path(track)
+            .delete= button_to "X", {:action => :destroy, :id => track.id}, :confirm => "Are you sure?", :method => :delete

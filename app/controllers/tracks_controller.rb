@@ -13,4 +13,21 @@ class TracksController < ApplicationController
     redirect_to :action => 'index'
   end
 
+
+  def edit
+    @track = Track.find(params[:id])
+  end
+  
+  def update
+    @track = Track.find(params[:id])
+    @track.update_attributes(params[:track])
+    redirect_to :action => 'index'
+  end
+  
+  def destroy
+    # raise 'b'
+    @track = Track.find(params[:id])
+    @track.destroy
+    redirect_to :action => 'index'
+  end
 end

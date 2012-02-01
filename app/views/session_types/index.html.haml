@@ -9,6 +9,10 @@
     %table{:summary => 'session type list'}
       %tr
         %th Name
+        %th Actions
       - @types.each_with_index do |type, i|
         %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
           %td= type.name
+          %td
+            = link_to 'Edit', edit_session_type_path(type)
+            .delete= button_to "X", {:action => :destroy, :id => type.id}, :confirm => "Are you sure?", :method => :delete

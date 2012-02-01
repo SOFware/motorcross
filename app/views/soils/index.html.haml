@@ -9,7 +9,12 @@
     %table{:summary => 'soil list'}
       %tr
         %th Name
+        %th Actions
       - @soils.each_with_index do |soil, i|
         %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
           %td= soil.name
+          %td
+            = link_to 'Edit', edit_soil_path(soil)
+            .delete= button_to "X", {:action => :destroy, :id => soil.id}, :confirm => "Are you sure?", :method => :delete
+          
 

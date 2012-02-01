@@ -1,0 +1,6 @@
+%h1 Edit Weather Condition
+.weather_conditions
+  .add_new
+    = simple_form_for @condition do |f|
+      = f.input :name, :input_html => {:class => 'focus_here'}
+      = f.button :submit

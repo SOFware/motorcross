@@ -1,6 +1,10 @@
 %table{:summary => 'track types list'}
   %tr
     %th Name
+    %th Actions
   - track_types.each_with_index do |track_type, i|
     %tr{:class => "#{((i+1) % 2 == 0 ? "even" : "odd")}"}
       %td= track_type.name
+      %td
+        = link_to 'Edit', edit_track_type_path(track_type)
+        .delete= button_to "X", {:action => :destroy, :id => track_type.id}, :confirm => "Are you sure?", :method => :delete
