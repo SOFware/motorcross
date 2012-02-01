@@ -8,13 +8,13 @@ jQuery ->
 				$('.active').toggleClass('active inactive')
 				$(this).parent().toggleClass('active inactive')				
 				$('.'+grouping).show()
-				$("#option").val(grouping)
+				# $("#option").val(grouping)
 				# currentHref = $('th.arrow a:first').attr('href')
 				# 				currentOption = currentHref.match(option=[*])
 				# 				
-				$('#gearing_table th.arrow a').each (index, link) ->
-					initialHref = $(link).attr('href')
-					$(link).attr('href', "#{intialHref}&option=#{grouping}" )
+				# $('#gearing_table th.arrow a').each (index, link) ->
+				# 	initialHref = $(link).attr('href')
+				# 	$(link).attr('href', "#{intialHref}&option=#{grouping}" )
 			
 
 # Dynamic menu for track based on event (and thus venue)
