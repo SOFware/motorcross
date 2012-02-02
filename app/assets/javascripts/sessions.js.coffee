@@ -8,22 +8,12 @@ jQuery ->
 				$('.active').toggleClass('active inactive')
 				$(this).parent().toggleClass('active inactive')				
 				$('.'+grouping).show()
-				# $("#option").val(grouping)
-				# currentHref = $('th.arrow a:first').attr('href')
-				# 				currentOption = currentHref.match(option=[*])
-				# 				
-				# $('#gearing_table th.arrow a').each (index, link) ->
-				# 	initialHref = $(link).attr('href')
-				# 	$(link).attr('href', "#{intialHref}&option=#{grouping}" )
-			
 
 # Dynamic menu for track based on event (and thus venue)
 	tracks = $('#session_track_id').html()
 	$('#session_track_id').parent().hide()
 	$('#session_venue_id').change ->
 		venue = $('#session_venue_id :selected').text()
-		# event = $('#session_venue_id :selected').text()
-		# venue = window.venue_hash[event]
 		options = $(tracks).filter("optgroup[label='#{venue}']").html()
 		if options
 			$('#session_track_id').html(options)
@@ -38,9 +28,6 @@ jQuery ->
 		sortList: [[0,0], [1,0]],
 		debug: true
 		} )
-#arrow for sortable columns
-	# $('.asc').parent().append('<div class="up"><div>')
-	# $('.desc').parent().append('<div class="down"><div>')
 		
 # keep the current option selected when sorting by column
 	option = $("#option").val()
