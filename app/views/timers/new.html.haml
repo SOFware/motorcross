@@ -1,0 +1,20 @@
+%h1 Lap Timer
+.timers
+
+  .controls
+    .time
+      %h3#stopwatch= "00:00"
+    %p.button= link_to "Start", "#", :id => 'start'
+    %p.button.hidden= link_to "Lap", "#", :id => 'lap_split', :class => 'hidden'
+    %p.button.hidden= link_to "Record Session", "#", :id => 'save', :class => 'hidden'
+
+
+
+  .laps_div
+    = hidden_field_tag 'lap_count', 0
+    = hidden_field_tag 'current_lap_start_time', 0
+    = form_tag laps_create_path do
+  
+      %ul.laps
+      = hidden_field_tag 'session_id', @session_id
+      .hidden= submit_tag 'save', {:id => 'record_laps'}

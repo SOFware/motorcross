@@ -18,8 +18,7 @@ class SessionsController < ApplicationController
   def create
     # raise "b"
     @session = Session.create(params[:session])
-    redirect_to :action => "index"
-    # redirect_to :controller => :laps, :action => "lap_timer"
+    redirect_to :controller => "timers", :action => "new", :session_id => @session.id
   end
 
 

@@ -72,13 +72,20 @@ When /^I add a racing series "([^"]*)"$/ do |racing_series|
   end
 end
 
-When /^I record on session on "([^"]*)"$/ do |date|
-  step %[I add a session type called "practice"]
-  step %[I add a track called "amateur moto" at the "NCMP" venue]
-  step %[I add a sky condition like "sunny"]
+# When /^I record on session on "([^"]*)"$/ do |date|
+When /^I record a session$/ do 
+  session = FactoryGirl.create(:session)
   visit root_path
   click_link "Record Session"
-  fill_in "session_date", :with => date
+  select session.venue.name, :from => "session_venue_id"
+  select session.track.name, :from => "session_track_id"
+  session.attributes.each do |attr, val|
+    selector = "session_#{attr}"
+    unless page.all(selector).empty?
+      fill_in selector, :with => val
+      select(val, :from => selector)      
+    end
+  end
   click_button "Save"
 end
 

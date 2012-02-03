@@ -8,7 +8,7 @@ $attention: #2b4e80;
 @import "blueprint/grid";
 @import "compass/utilities/tables/alternating-rows-and-columns";
 @import "fancy-buttons"; //fancy-buttons ( color, font-size, border-radius, border-size )
-
+@import "compass/utilities/lists/bullets";
 
 @mixin create-button {
 	@include fancy-button($attention);

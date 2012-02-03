@@ -1,6 +1,9 @@
 Motorcross::Application.routes.draw do
 
+  post 'timers/test'
+  post 'laps/create'
 
+  resources :timers
   resources :session_types
   resources :sessions
   resources :events
