@@ -43,6 +43,7 @@ class Session < ActiveRecord::Base
   belongs_to :session_type
   belongs_to :front_tire, :class_name => "Tire"
   belongs_to :rear_tire, :class_name => "Tire"
+  has_many :laps
   
   delegate :ground_state, :to => :ground_condition, :allow_nil => true
   delegate :weather, :to => :weather_condition, :allow_nil => true
@@ -56,6 +57,8 @@ class Session < ActiveRecord::Base
     {compression: 12, rebound: 12}
   end
 
-  
+  def best_lap_time
+    Lap.best_session_time(self) / 10.0
+  end
 
 end
