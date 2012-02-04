@@ -15,5 +15,9 @@ class SessionType < ActiveRecord::Base
     self[:name] = ApplicationHelper::fix_caps(name)
   end
   
+  def session_type_name
+    name
+  end
+  
 
 end

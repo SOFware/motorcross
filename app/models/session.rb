@@ -47,11 +47,16 @@ class Session < ActiveRecord::Base
   
   delegate :ground_state, :to => :ground_condition, :allow_nil => true
   delegate :weather, :to => :weather_condition, :allow_nil => true
-  delegate :venue_name, :to => :event, :allow_nil => true
+  delegate :venue_name, :to => :venue, :allow_nil => true
+  delegate :session_type_name, :to => :session_type, :allow_nil => true
   delegate :track_name, :to => :track, :allow_nil => true
 
   scope :venue, lambda {|direction| joins(:track).order("venue_id #{direction}")}
   scope :soil, lambda {|direction| joins(:track).order("soil_id #{direction}")}
+
+  def bike_name
+    bike.make_and_model
+  end
 
   def defaults
     {compression: 12, rebound: 12}

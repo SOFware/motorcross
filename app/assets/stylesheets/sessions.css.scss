@@ -1,4 +1,20 @@
 .sessions {
+	.show {
+		.sub_header {
+			.text-align: center;
+			.font-size: 95%;
+			font-family: Arial, Helvetica, sans-serif;
+			.group {
+				margin-right: 20px;
+				float: left;
+			}
+			.group.last { float: none;}
+			span.label { 
+				color: #999;
+				font-size: 80%;
+			}
+		}
+	}
 	.hidden {display: none;}
 	.nav {
 		div {
@@ -126,116 +142,4 @@
   
 	
 }
-
-
-.sessions {
-	.hidden {display: none;}
-	.nav {
-		div {
-			border-style: solid;
-			border-color: #555;
-			background-color: #aaa;
-			border-width: 1px;
-			height: 20px;
-			text-align: center;
-			padding-top: 3px;
-		}
-		.active { 
-			@include column(4.8);
-			margin: 0px 0px 35px 0px;
-			background-color: #476ece;
-			}
-		.inactive { 
-			@include column(4.8);
-			margin: 0px 0px 35px 0px;
-			.hidden {display: none;}
-			}
-	}
-
-	.index_list { 
-		// a { float: left}
-		@include index_list(3, 300); 
-		table { float: left;}
-		td {min-width: 75px}
-		.options td {text-align: center}
-		.circumstances {}
-		.tires {}
-		.gearing {}
-		.suspension {}
-		.fork {}
-		.shock {}
-	}
-
-	.notes { 
-		@include column(24);
-		@include push(1);
-		textarea {
-			width: span(16);
-			height: 120px;
-			}
-		}
-
-	.new {
-		.circumstances {
-			select {
-				width: 170px;
-			}
-			input[type='number'] {
-			  width: 50px;
-			}
-			@include column(24);
-	    .time {
-				@include push(2.4); 
-				@include column(8);
-			}                 
-	    .conditions {     
-				@include column(9, true);	
-				@include push(2);
-				label { width: 150px; }
-			}
-	  }
-	  .tires, .gearing {
-			$tire_width: 7;
-			@include column(24);
-			input[type='number'] {
-			  width: 50px;
-			}
-			.front {
-				@include column($tire_width);
-			}
-			.bike {
-				@include push(1);
-				@include column($tire_width);
-			}
-			.rear {
-				@include column($tire_width, true);
-			}
-		}
-	  .suspension {
-			input[type='number'] {
-			  width: 50px;
-			}
-			@include column(24);
-			label { width: 150px; }
-			.front {
-				@include push(4);
-				@include column(8);
-			}
-			.rear {
-				@include column(8, true);			
-			}
-		}
-		.hidden {display: none}
-	}
-  .button {
-		input[type='submit'] {
-		  margin-left: 0px;
-		}
-		@include push(8);
-		@include column(8);
-	}
-  
-	
-}
-
 

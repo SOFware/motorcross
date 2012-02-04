@@ -1,0 +1,65 @@
+%h1 Session Detail
+
+.sessions
+  .show
+    - s = @session
+    .sub_header
+      .group
+        %span.label Location: 
+        = " #{s.venue_name} "  
+      .group        
+        %span.label Track:    
+        = "#{s.track_name} "
+      .group        
+        %span.label Date:
+        = " #{s.date.strftime('%m/%d/%y ')}"   
+      .group        
+        %span.label Session:
+        = " #{s.session_type_name}"   
+      .group        
+        %span.label Best Lap:
+        = " #{s.best_lap_time}"   
+      .group.last
+        %span.label Avg Lap:
+        = " #{s.avg_lap_time}"   
+
+    %br
+    %br
+    %br
+    (Rest of session data goes here...)      
+    / = simple_form_for @session do |f|
+    /   .test= f.input :session_notes        
+    /   .test= f.label :bike              
+    /   .test= f.text_field :bike_name
+      
+    
+    
+
+                          
+/ #  temp                 
+/ #  ground_condition_id  
+/ #  weather_condition_id 
+                          
+/ #  front_psi            
+/ #  rear_psi             
+/ #  front_tire_id        
+/ #  rear_tire_id         
+                          
+/ #  front_gearing        
+/ #  rear_gearing         
+                          
+/ #  fork_spring_rate     
+/ #  fork_compression     
+/ #  fork_rebound         
+                          
+/ #  shock_spring_rate    
+/ #  compression_high     
+/ #  compression_low      
+/ #  rebound              
+/ #  sag                  
+                          
+/ #  tire_notes           
+/ #  suspension_notes     
+/ #  gearing_notes        
+
+

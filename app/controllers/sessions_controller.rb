@@ -10,6 +10,10 @@ class SessionsController < ApplicationController
     end
     @option = params[:option] || 'circumstances'
   end
+  
+  def show
+    @session = Session.find(params[:id])
+  end
 
   def new
     @session = Session.new
