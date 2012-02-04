@@ -9,6 +9,7 @@ $attention: #2b4e80;
 @import "compass/utilities/tables/alternating-rows-and-columns";
 @import "fancy-buttons"; //fancy-buttons ( color, font-size, border-radius, border-size )
 @import "compass/utilities/lists/bullets";
+@import "compass/css3/border-radius";
 
 @mixin create-button {
 	@include fancy-button($attention);

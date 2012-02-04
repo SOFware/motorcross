@@ -18,19 +18,25 @@
   
   .index_list
     = hidden_field_tag :option, @option 
+    .bike_name (e.g. 'Honda 450')
+    .other_bike (e.g. 'Yamaha 350')
     %table#sessionsTable.tablesorter{:summary => 'cirumstances list'}
       %thead
         %tr
           %th Location
+          
+          %th Race Series
+
           %th Date
-          %th Time
-          %th Session 
+          %th Session
+          %th Best Lap
+          %th Avg Lap
           / %th.options.circumstances Venue
           %th.options.circumstances Track
           %th.options.circumstances Weather
           %th.options.circumstances Temp
           %th.options.circumstances Ground
-          %th.options.tires Bike
+          / %th.options.tires Bike
           %th.options.tires Front Tire
           %th.options.tires Front PSI
           %th.options.tires Rear Tire
@@ -52,15 +58,17 @@
 
           %tr 
             %td= session.venue.name
+            %td (stub)
             %td= session.date.strftime("%-d %b %y")
-            %td= session.time.strftime("%l:%M%P")
             %td= session.session_type.name
+            %td= session.best_lap_time
+            %td= session.avg_lap_time
             / %td.options.circumstances= session.venue_name
             %td.options.circumstances= session.track_name
             %td.options.circumstances= session.weather
             %td.options.circumstances= session.temp
             %td.options.circumstances= session.ground_state
-            %td.options.tires= session.bike.make_and_model
+            / %td.options.tires= session.bike.make_and_model
             %td.options.tires= session.front_tire.make_and_model
             %td.options.tires= session.front_psi
             %td.options.tires= session.rear_tire.make_and_model

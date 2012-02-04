@@ -23,9 +23,28 @@
 	}
 
 	.index_list { 
+		.bike_name {
+			font-size: 80%;
+			border-style: solid;
+			border-bottom-style: none;
+			@include border-top-right-radius(3px);
+			@include border-top-left-radius(3px);
+			width: 110px;
+			border-width: 1px;			
+			padding: 2px 0px 2px 4px;
+			background-color: #ddd;
+			float: left;
+		}
+		.other_bike {
+			@extend .bike_name;
+			background-color: #fff;
+			float: left;
+		}
 		// a { float: left}
 		@include index_list(3, 300); 
-		table { float: left;}
+		table { 
+			float: left;
+			margin-top: 0px;}
 		td {min-width: 75px}
 		.options td {text-align: center}
 		.circumstances {}

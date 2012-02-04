@@ -58,11 +58,11 @@ class Session < ActiveRecord::Base
   end
 
   def best_lap_time
-    Lap.best_session_time(self) / 10.0
+    Lap.best_session_time(self) # / 10.0
   end
   
   def avg_lap_time
-    Lap.avg_session_time(self) / 10.0
+    Lap.avg_session_time(self) # / 10.0
   end
 
 end
